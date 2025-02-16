@@ -15,17 +15,18 @@ class VoteTermination():
 		self.result:str|None = None
 
 	
-	def check_termination(self, msg:str) -> bool:
+	def check_termination(self, msg:dict) -> bool:
 		# Check if answer format appears in message
-		count = msg.count(self.answer_format.format(""))
+		content = msg['content']
+		count = content.count(self.answer_format.format(""))
 		
 		# Return False if multiple instances or no instances found
 		if count != 1:
 			return False
 		
 		# Extract answer from message by finding what's between the format braces
-		start_idx = msg.find(self.answer_format.format(""))
-		answer = msg[start_idx + len(self.answer_format.format(""))]
+		start_idx = content.find(self.answer_format.format(""))
+		answer = content[start_idx + len(self.answer_format.format(""))]
 		
 		# Convert letter to index (A=0, B=1, etc)
 		
