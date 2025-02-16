@@ -15,43 +15,62 @@ class VoteTermination():
 		self.result:str|None = None
 
 	
-	def check_termination(self, msg:dict) -> bool:
-		# Check if answer format appears in message
+	def check_termination(self, msg: dict) -> bool:
+		# Check if the answer format appears within the message.
 		content = msg['content']
-		count = content.count(self.answer_format.format(""))
 		
-		# Return False if multiple instances or no instances found
-		if count != 1:
+		# Find the position of "{}" in the answer format
+		brace_pos = self.answer_format.find("{}")
+		if brace_pos == -1:
+			# The answer_format is not in the expected format if no "{}" is found.
+			return False
+
+		# Split the answer_format into a prefix and suffix.
+		prefix = self.answer_format[:brace_pos]
+		suffix = self.answer_format[brace_pos+2:]
+		
+		# Ensure that the prefix exists in the content.
+		start_idx = content.find(prefix)
+		if start_idx == -1:
 			return False
 		
-		# Extract answer from message by finding what's between the format braces
-		start_idx = content.find(self.answer_format.format(""))
-		answer = content[start_idx + len(self.answer_format.format(""))]
+		# The answer should immediately follow the prefix.
+		answer_start = start_idx + len(prefix)
 		
-		# Convert letter to index (A=0, B=1, etc)
+		# If there's a suffix, use it to determine where the answer ends.
+		if suffix:
+			answer_end = content.find(suffix, answer_start)
+			if answer_end == -1:
+				return False
+			answer = content[answer_start:answer_end]
+		else:
+			# If no suffix is defined, assume the answer extends to the rest of the content.
+			answer = content[answer_start:]
 		
-		# Check if valid option
+		# Strip any extra whitespace from the extracted answer.
+		answer = answer.strip()
+		
+		# Make sure the answer is valid (in this case, a single letter among the valid options).
 		if answer not in {'A', 'B', 'C', 'D'}:
 			return False
-			
-		# Add vote to queue
-		# Remove oldest vote and add new vote
+
+		# Update the vote queue with the new vote.
 		self.vote_queue.pop(0)
 		self.vote_queue.append(answer)
 		
-		# Count votes for each option
+		# Count votes for each option.
 		votes = {}
 		for vote in self.vote_queue:
 			if vote is not None:
 				votes[vote] = votes.get(vote, 0) + 1
 		
-		# Check if any option has reached quorum
+		# Check if any option has reached quorum.
 		quorum = self.num_voters * self.quorum_fraction
 		for option, count in votes.items():
 			if count > quorum:
 				self.result = option
 				return True
-				
+
 		return False
 
 
