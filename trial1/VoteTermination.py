@@ -1,14 +1,12 @@
 class VoteTermination():
-	def __init__(self, num_voters:int, num_options:int, quorum_fraction:float=.5, answer_format:str="Answer: {}"):
+	def __init__(self, num_voters:int, quorum_fraction:float=.5, answer_format:str="Answer: {}"):
 		"""
 		A class to make is_termination_msg stateful.
 		params:
 			num_voters: how many voters there will be
-			num_options: number of letter choices (eg A,B,C, and D would mean num_options = 4)
 			quorum_fraction: greater than this fraction of voters must select an answer before it is selected by the group. Defaults to .5
 		"""
 		self.num_voters:int = num_voters
-		self.num_options:int = num_options
 		self.vote_queue:list[str | None] = [None] * self.num_voters
 		self.quorum_fraction:float = quorum_fraction
 		self.answer_format:str = answer_format
