@@ -1,0 +1,152 @@
+case_id,context,diagnosis,COMMON_UNCOMMON,global_pk
+10.1016%j.cgh.2018.08.024,"patient_presentation: A 56-year-old man was admitted to our hospital for recurrent episodes of hematochezia over the past 5 years.
+additional_history: He denied other symptoms, including abdominal pain, diarrhea, hematemesis, melena, and weight loss.
+physical_exam: The physical examination on admission showed normal vital signs and a soft, nontender abdomen.
+initial_laboratory_results: The admission laboratory testing showed a hemoglobin level of 10.6 g/dL, a normal platelet count, and a normal coagulation profile....Additional laboratory testing results were negative for Bence-Jones protein in the urine and M-component, κ-light chains, and λ light chains in the serum using immunofixation electrophoresis. 
+imaging_without_photo: Electrocardiography and echocardiography were normal, and computed tomography of the chest, abdomen, and pelvis showed no abnormal findings.
+imaging_test_with_photo: Colonoscopy showed variable lesions throughourt the colorectum, including patchy, yellow-red, plaque-like lesions, submucosal hematomas (Figure A)...
+next_imaging: ...ulcerations (Figure B)...
+third_imaging: ...and polypoid protrusions (Figure C).
+","Based on these findings, localized colorectal amyloidosis was diagnosed.",UNCOMMON,38
+10.1053%j.gastro.2010.01.066,"patient_presentation: A 31-year-old man was referred to our hospital because of acute onset of hematochezia.
+additional_history: He reported to have colicky abdominal pain 4 hours before the onset of hematochezia. He had similar attack for 4 times in the previous 10 years. Repeated upper endoscopy, colonoscopy, computed tomography (CT), and angiography all failed to identify the bleeder. Like this attack, he recalled the previous bleeding episodes were precipitated with lower abdominal colicky abdominal pain and were self-limited after conservative treatment. Two episodes of hematochezia with hypovolemic shock occurred within 2 hours after admission. He was then transferred to the intensive care unit with fluid resuscitation.
+imaging_without_photo: Emergent CT angiography disclosed only blood clots in the colon.
+imaging_test_with_photo: A double-balloon enteroscopy found the presence of a lesion during anal route examination (Figure A; Video A).
+next_imaging: A tattoo was done for subsequent laparoscopic resection of the lesion (Figure B; Video B).
+",,UNCOMMON,257
+10.1016%j.cgh.2018.01.050,"patient_presentation: A 47-year-old man with Laennec’s cirrhosis presented with acute-onset mid-abdominal pain and hematemesis.
+imaging_test_with_photo: Physical examination revealed an ill-appearing Latino male with scleral icterus, abdominal distention, and tenderness around a firm, warm, discolored umbilical hernia (a).
+next_imaging: Urgent esophagogastroduodenoscopy was performed following resuscitation and demonstrated large esophageal varices, including one with a fibrin-platelet plug (i.e. “white nipple sign”) (b) at 34 cm from the incisors.
+third_imaging: Post-procedure, computed tomography was obtained to evaluate the umbilical hernia and revealed edematous, hyperemeic small bowel in the hernia sac and proximal bowel dilation (c).
+","Given the patient likely had liver disease for many years but had never experienced bleeding, it was postulated that the strangulated bowel likely led to acutely increased intra-abdominal and portal venous pressures, thus resulting in variceal hemorrhage.",UNCOMMON,109
+10.1053%j.gastro.2013.08.004,"patient_presentation: A 3-year-old boy from a family of low socioeconomic status living in a tropical country presented with complaint of upper abdominal pain, high-grade fever, and jaundice.
+initial_laboratory_results: Laboratory investigations revealed: hemoglobin, 10.6 gm%; total leukocyte count, 13,800; differential leukocyte count, P86; lymphocyte, 14; erythrocyte sedimentation rate, 36; alanine aminotransferase, 374 U/L (normal, 0–50); aspartate aminotransferase, 356 U/L (normal, 5–50); serum alkaline phosphatase, 768 U/L (normal, 25–125); and serum bilirubin, 5.1 mg/dL (normal, 0.2–1.1); serum amylase, 700 U/L (normal, 20–80); and serum lipase, 500 U/L (normal, 0–190).
+imaging_without_photo: Abdominal ultrasonography revealed a normal liver and gallbladder with a dilated common bile duct of 10.8 mm to the lower end and a dilated pancreatic duct (3 mm in body of pancreas). An ill-defined, oval, hyperechoic shadow was seen near the lower end of common bile duct.
+imaging_test_with_photo: Magnetic resonance cholangiopancreatography showed the following images (Figure A, B).
+next_imaging: Endoscopic ultrasonography was done and as the pancreatic duct was followed towards the head of pancreas it showed a hyperechoic structure (5.3  4.3 mm) inside the pancreatic duct which was not causing any acoustic shadow (Figure C; Video Clip 1). Initial attempts at endoscopic retrograde cholangiopancreatography (ERCP) failed in cannulation and a repeat attempt was made after 72 hours of antibiotics.
+third_imaging: A repeat endoscopic ultrasound (radial) was done before repeating the ERCP and it showed the following images from stomach (Figure D; Video Clip 2).
+",,UNCOMMON,242
+10.1053%j.gastro.2020.06.053,"patient_presentation: A 61-year-old man with a history of primary sclerosing cholangitis was referred for evaluation of progressive jaundice, abdominal distension, and lower extremity edema over the last several months.
+physical_exam: Vital signs were within normal range. Physical examination revealed a thin, jaundiced man with sclearl icterus, a non-tender distended abdomen with positive shifting dullness, caput medusae, and pitting lower extremity edema.
+initial_laboratory_results: Laboratory tests showed thrombocytopenia and a predominately cholestatic pattern of liver test abnormalities with a total bilirubin of 6.1 mg/dL, alkaline phosphatase of 481 U/L, AST of 129 U/L, ATL of 84 U/L, and albumin of 2.8 g/dL.  
+imaging_without_photo: Surface nodularity of the shrunken liver and prominent biliary dilation were seen on an abdominal ultrasound. On endoscopic ultrasound, the ampulla appeared normal with no evidence of an obstructing mass lesion, biliary stricture, or choledocholithiasis. Subsequent endoscopic retrograde cholangiopancreatography was notable for thick mucin filling the bile ducts.
+imaging_test_with_photo: Magnetic resonance cholangiopancreatography revealed severe diffuse dilation of the intrahepatic and extrahepatic bile ducts (Figure A). 
+next_imaging: Cholangioscopy demonstrated normal biliary epithelium except for a small focus of villous, frond-like mucosa in the left hepatic duct (Figure B).
+",,COMMON,190
+10.1016%j.cgh.2017.10.015,"patient_presentation: A 75-year-old man was admitted to our hospital with diarrhea.
+additional_history: He had a history of mitral valve plasty for mitral regurgitation, chronic heart failure, cerebral infarction, and type 2 diabetes mellitus....The patient was re-admitted for a high fever 72 days after discharge.
+initial_laboratory_results: C-reactive protein (12.5 mg/dL), blood urea nitrogen (142.6 mg/dL), and creatinine (10.9 mg/dL) levels were increased remarkably.
+imaging_test_with_photo: Colonscopy showed redness and edematous mucosa at the terminal ileum and the total colon (Figure A).
+next_imaging: Contrast-enhanced computed tomography showed a distended abdominal aorta with a diameter of 35 mm (Figure B), which was more dilated than it was at first admission (Figure C).
+third_imaging: After surgery (Figure D) and administration of intravenous levofloxacin, the patient was discharged 30 days after the second admission.
+","Nontyphoidal Salmonella (NTS) with 08 antigen was identified from cultures of stool and mucosa of the terminal ileum, although blood cultures were negative....Therefore, he was diagnosed with a secondary infected aortic aneurysm owing to NTS bacteremia.",UNCOMMON,142
+10.1016%j.cgh.2017.12.047,"patient_presentation: A 71-year-old woman presented with jaundice, pruritus, asthenia and weight loss.
+additional_history: Abdominal computed tomography (CT) revealed intrahepatic bile duct dilatation, secondary to cholangiocarcinoma, type IV of Bismuth-Corlette's classification. Endoscopic retrograde cholangiopancreatography was performed wtih biliary sphincterotomy, balloon dilatation and implantation of bilateral biliary plastic stents (8.5-Fr, 12-cm). Twenty-four hours later, the patient presented fever and abdominal pain.
+imaging_test_with_photo: Urgent abdominal CT-scan revealed pneumoretroperitoneum and retroperitoneal infiltration, caused by inferior duodenal flexure perforation, related to migration of the right biliary plastic stent (Figure A).
+next_imaging: Esophagogastroduodenoscopy, with CO2 insufflation, was performed, confirming the duodenal perforation in contact with the plastic prosthesis (Figure B).
+third_imaging: The biliary stent was removed, then the perforation was closed by an over-the-scope clip (OSTC-diameter of 9-mm) (Figure C), using twin grasper to approximate the edges of the defect and capturing the tissue inside the cap without capturing the adjacent organs.
+",...confirming the duodenal perforation in contact with the plastic prosthesis.,UNCOMMON,125
+10.1053%j.gastro.2020.04.040,"patient_presentation: A 62-year-old male without significant past medical/surgical history presented with a 1-month history of intermittent dull right upper quadrant pain, which sometimes occur postprandially and was sometimes associated with mild nausea. 
+additional_history: He denied any fever, trauma, tarry stool, jaundice, tea-color urine, or pain radiation. He took over the counter proton pump inhibitor by himself, but the symptoms persisted. He was subsequently referred to our hospital. 
+physical_exam: Physical examination revealed mild tenderness over right upper quadrant of abdomen, with positive Murphy’s sign. 
+initial_laboratory_results: The white cell count was 4930/μl, and other blood investigations were unremarkable.
+imaging_without_photo: Upper GI endoscopy was normal.
+imaging_test_with_photo: Abdominal ultrasound (Figure A) and Computer Tomography (Figure B) showed gallbladder wall thickening with a 5cm hyperechoic or hyperintense lesion inside.
+",,UNCOMMON,192
+10.1016%j.cgh.2018.04.056,"patient_presentation: A 74-year-old female with an eight-year history of Crohn's disease on long-standing adalimumab and azathioprine presented with severe, acute abdominal pain.
+additional_history: Approximately two weeks later while awaiting oncology evaluation, she presented to the hospital for severe abdominal pain. She was emergently taken to the operating room for suspected perforation discovered on imaging.
+imaging_test_with_photo: One-month prior, CT enterography obtained for poor appetite and weight loss was suggestive of ileitis with two segments of prominent bowel thickening (Figure A).
+next_imaging: Colonoscopy showed ulcerated terminal ileum and two partially obstructing masses (Figure B) with an atypical large B cell infiltrate on histology.
+third_imaging: During exploratory laparotomy, a perforated wide-based Meckel's diverticulum within a segment of inflamed terminal ileum was discovered and resected (Figure C).
+",Iatrogenic immunodeficiency-associated lymphoproliferative disorder,UNCOMMON,78
+10.1016%j.cgh.2017.08.046,"patient_presentation: A 55-year-old woman with poorly controlled type II diabetes mellitus (hemoglobin A1C of 15.6%) presented to hospital with diabetic ketoacidosis (DKA) and coffee ground emesis.
+additional_history: Treatment of DKA with insulin infusion and intravenous fluids was instituted, in addition to high dose proton pump inhibitor (PPI) therapy for presumed upper gastrointestinal bleed.
+imaging_test_with_photo: An esophagastroduodenoscopy (EGD) the day after admission revealed near circumferential black, necrotic-appearing esophageal mucosa from the mid-esophagus to the gastroesophageal junction (a), where there was an abrupt transition to normal appearing mucosa (b).
+next_imaging: An EGD repeated 6 days later (after resolution of the DKA) demonstrated complete healing of the necrotic-appearing mucosal changes (c).
+","...circumferential black, necrotic-appearing esophageal mucosa from the mid-esophagus to the gastroesophageal junction...",UNCOMMON,176
+10.1016%j.cgh.2017.08.037,"patient_presentation: A 62-year-old Caucasian man presented with iron-deficiency anemia.
+additional_history: The patient had no significant past medical or travel history but had guaiac-positive stool on rectal examination.
+initial_laboratory_results: Laboratory results showed a hemoglobin level of 13.4 g/dL with an iron saturation of 9%. 
+imaging_without_photo: Upper endoscopy was negative for ulcers/gastritis and colonoscopy showed diverticulosis without bleeding.
+",The worm was identified as an Ascaris lumbricoides.,UNCOMMON,178
+10.1053%j.gastro.2016.06.013,"patient_presentation: A 64-year-old woman presented to the emergency department with a 3-day history of right iliac fossa abdominal pain associated with nausea and anorexia but without vomiting.
+additional_history: She is otherwise healthy.
+physical_exam: On examination, she was afebrile with normal vital signs. Her abdominal examination was unremarkable apart from tenderness in the right iliac fossa. Peritoneal irritation was evident by guarding and percussion tenderness. The pain centered predominantly along the mid inguinal point. There was no demostrable cough impulse.  
+imaging_without_photo: A computed tomography scan of the abdomen and pelvis was ordered.
+",,UNCOMMON,221
+10.1016%j.cgh.2017.09.060,"patient_presentation: A 35-year-old morbidly obese (body mass index, 40) woman presented with a few months of postprandial right upper-quadrant pain, nausea, and vomiting.
+physical_exam: Physical examination was positive for Murphy's sign, but otherwise unremarkable. Her laboratory values including liver chemistry were normal except for a mildly increased white count. Initial work-up with an abdominal ultrasound showed an intrahepatic cyst in addition to the gallbladder.
+imaging_test_with_photo: Magnetic resonance cholangiopancreatography (Figure A) and subsequent endoscopic retrograde cholangiopancreatography performed for clarification showed the presence of a cyst with a separate duct draining into the common hepatic duct. 
+","She underwent open cholecystectomy, which confirmed the cyst to be a duplicate gallbladder. ",UNCOMMON,147
+10.1016%j.cgh.2017.10.010,"patient_presentation: A 14-year-old boy presented with intermittent hematochezia for 2 weeks. 
+additional_history: He reported a simliar episode of hematochezia 1 year ago that was regarded as colitis. His medical history was unremarkable....An endoscopic biopsy was not performed because of the high risk of significant bleeding after biopsy of the lesion. The patient underwent a laparoscopic right hemicolectomy.
+physical_exam: Physical examination showed, a nontender, soft, palpable mass at the upper right quadrant of the abdomen.
+initial_laboratory_results: His hemoglobin level was 7.3 g/dL (normal range, 13.0-16.0 g/dL).
+imaging_test_with_photo: A computed tomography scan of his abdomen showed asymmetric segmental wall thickening with scattered punctuate calcification (Figure A, white arrow) and heterogeneous enhancement from the midtransverse colon to the hepatic flexure (Figure A, black arrow).
+next_imaging: Colonoscopy showed the huge bluish protruding mass with a conglomerated grape-like shape and hemocystic spots that occupied most of the lumen of the midtransverse colon (Figures B and C).
+",Cavernous hemangioma causing hematochezia,UNCOMMON,146
+10.1053%j.gastro.2016.08.013,"patient_presentation: A 39-year-old Hispanic woman, presented in her 8th week of her first pregnancy with intermittent dysphagia and acid reflux.
+additional_history: Her past medical history was significant only for prior breast augmentation; she born in Columbia but had not been out of the United States in many years.
+physical_exam: Physical examination was significant for evidence of wasting, no lymphadenopathy or rash. 
+initial_laboratory_results: Laboratory tests were significant for a new transaminitis with aspartate aminotransferase/alanine aminotransferase peak of 632/753, alkaline phosphatase of 174, and albumin of 2.2. A complete blood count showed hemoglobin/hematocrit of 11.5/34.5 and a white blood cell count of 10.0 (79% neutrophil, 11% lymphocyte, 9% monocytes). Other notable laboratory results include C-reactive protein of 38.7 (normal, 0.2-3.0) and an erythrocyte sedimentation rate of 124 (normal, <30). Hepatitis serologies were negative.
+imaging_test_with_photo: She had been experiencing these symptoms for several months, without vomiting or regurgitation, and had recently had an upper GI series (Figure A), in what would become the week of pregnancy conception, which showed only mild reflux with no stricture or emptying delay. 
+next_imaging: An esophagram, which only 10 months earlier appeared normal, now showed a massively dilated esophagus (Figure B) with the classic “bird beak” finding of achalasia (Figure C), with the diagnosis confirmed by manometry.
+third_imaging: Computed tomography of the chest/abdomen/pelvis (Figure D) showed an esophagus dilated to 7 cm and multiple mediastinal lymph nodes.
+","She was treated conservatively with proton pump inhibitors and dietary modification but as her pregnancy progressed, her condition worsened, and she began vomiting multiple times per day. By week 25, she could not hold down any food, vomiting several hours after ingestion, had lost 15 kg from her pre pregnancy weight and developed pruritus and night sweats. She declined endoscopic and radiologic evaluation until after delivery. At 36 weeks gestation, she went into labor and delivered a 4 lb 14 oz baby boy with an APGAR score of 9. Four days after delivery, esophagogastroduodenoscopy showed dilated esophagus with gastroesophageal junction stricture and candidal esophagitis.",COMMON,217
+10.1053%j.gastro.2009.08.008,"patient_presentation: A 62-year-old man presented with a 6-hour history of mid-abdominal pain and vomiting.
+additional_history: He had no previous medical or surgical history.
+physical_exam: Physical examination revealed tenderness in the para-navel area.
+initial_laboratory_results: White blood cell count was 16,500/mm^3 ; red blood cells, 592 x 10^4/mm^3; other blood chemistry data were within normal limits.
+imaging_without_photo: Abdominal radiography demonstrated dilated small bowels with air–fluid levels.
+imaging_test_with_photo: Computed tomography (CT) of the dilated small bowels revealed a tight thick cord projection (Figure A, thick arrow) from the intestinal wall (Figure A, arrow head) toward the retroperitoneum with edematous mesentery (Figure A, thin arrow).
+",,UNCOMMON,258
+10.1016%j.cgh.2017.09.051,"patient_presentation: A 72-year-old man, an ex-smoker, with a history of pulmonary obstructive disease, was referred for colonoscopy for hematochezia, weight loss, and abdominal pain.
+imaging_test_with_photo: The colonoscopy showed an ulcerated tumor occupying three quarters of the circumference of the lumen in the transverse colon (Figure A) and a 30-mm polypoid tumor in the ascending colon (Figure B).
+next_imaging: After 5 cycles, colonoscopy was repeated and no lesions were observed, except a scar in the transverse colon (Figure C).
+","Biopsy specimens showed a poorly differentiated solid carcinoma and immunohistochemistry showed a TTF1 and Napsin-A–positive tumor, which favors metastatic tumors from a pulmonary origin.",COMMON,152
+10.1016%j.cgh.2018.05.032,"patient_presentation: A 63-year-old man was admitted to our hospital because of anemia.
+initial_laboratory_results: Laboratory test results showed iron-deficiency anemia. 
+imaging_test_with_photo: Duodenoscopy showed a 1.5-cm pedunculated mass at the ampulla of Vater. The mass was tense and covered with a normal mucosa (Figure A).
+next_imaging: A biopsy specimen from the erosion at the tumor neck (Figure B, arrowhead) showed normal ampullary tissue and thus did not confirm the diagnosis. Endoscopic retrograde cholangiopancreatography and intraductal ultrasonography showed no tumor progression into the pancreatic and bile ducts. The mass was found to be limited to the ampulla. Endoscopic papillectomy was performed to ensure a correct diagnosis.
+",The histopathologic diagnosis was myoepithelial hamartoma. ,UNCOMMON,69
+10.1016%j.cgh.2020.07.047,"patient_presentation: A 45-year-old woman presented to the emergency department with a 15-day history of abdominal pain and distention.
+physical_exam: On physical examination, diffuse abdominal tenderness and shifting dullness were observed.
+initial_laboratory_results: Laboratory results showed a white-cell count of 11,400 per cubic millimeter (reference range, 4000 to 9500) and total bilirubin of 42.1 μmol/L (reference range, 0.00 to 20.5). 
+imaging_without_photo: A positron emission tomography (PET) scan was performed, showing irregular thickening of the small bowel and colon accompanied with FDG hypermetabolism of spleen, liver, abdominal lymph nodes and bone marrow. 
+imaging_test_with_photo: Abdominal computed tomography (CT) revealed diffuse and irregular cystic lesions in the left liver (Figure A). 
+next_imaging: The coronal plane of abdominal CT showed enlarged left liver occupying most of the abdominal cavity (Figure B). 
+",This patient was diagnosed as polycystic liver disease (PLD) with hepatic cyst infection and classified as severe phenotype (Gigot Type III). ,UNCOMMON,2
+10.1016%j.cgh.2018.04.058,"patient_presentation: A 64-year-old man was referred to our hospital with left cervical lymphadenopathy.
+additional_history: Fluorine-18 fluorodeoxyglucose positron emission tomography-computed tomography showed large amounts of accumulation in the esophagus, bones, and systemic lymph nodes.
+imaging_test_with_photo: Esophagogastroduodenoscopy showed a flat depressed lesion of approximately 2 cm in the middle of the thoracic esophagus (Figure A).
+next_imaging: The lesion appeared as a brownish area on narrow-band images (Figure B).
+",Esophageal neuroendocrine carcinoma (NEC) with multiple metastases was diagnosed based on these findings.,UNCOMMON,76
+10.1053%j.gastro.2018.06.085,"patient_presentation: A 69-year-old woman was referred to our clinic for control colonoscopy after endoscopic resection of a rectal adenoma with low-grade dysplasia.
+imaging_without_photo: A colonoscopy was then carried out, because the investigation of colon and rectum was unremarkable. While interrogating the terminal ileum, subepithelial dark and diffuse flecks were detected along 15 cm with normal appearing epithelium.
+imaging_test_with_photo: These dark areas had patchy distribution and were surrounded by normal appearing mucosa (Figure A, B).
+","After the endoscopic evaluation, the use of laxatives, oral iron, or charcoal was excluded by review of medical records and by interview with the patient. The patient also denied the use of any over-the-counter drugs or herbal substances. Moreover, the patient had a recent normal gastroscopy that was performed owing to dyspepsia. There were no other relevant findings in her medical history. After discussing the results with the patient, a surveillance colonoscopy was performed 6 months later and showed a normal colonic and ileal mucosa.",UNCOMMON,204
+10.1016%j.cgh.2015.08.007,"patient_presentation: A 59-year-old man with a past medical history of diabetes, hypertension, dyslipidemia, and obstructive sleep apnea and no relevant familly history for colorectal cancer underwent screening colonoscopy.
+physical_exam: Several large diverticula were found in the sigmoid colon. At 30 cm from the anal verge, 2 adjacent inverted diverticula were found.
+imaging_test_with_photo: A second procedure was scheduled in which gentle cold snare polypectomy was attempted (Figure A). However, the lesion could not be resected, probably the result of entrapment of the tip of the ICD by the snare. Diathermy was not used because of the high risk of perforation in this setting.
+next_imaging: Hence, resection using the ligate-and-let-go technique was planned because it enables a slow mechanical transction of the diverticulum with a much lower risk of perforation. A standard detachable snare (MAJ-254; Olympus, Tokyo, Japan) was positioned and tightened around the base of the ICD, resulting in its immediate congestion (Figure B). Submucosal tattooing was performed distally to the second ICD.
+third_imaging: A follow-up colonoscopy was performed 8 weeks later that showed a regular scar without residual lesion (Figure C) and negative biopsy samples.
+","In the tip of the most proximal inverted colonic diverticulum (ICD), a 10-mm flat adenomatous transformation (type 0-IIa in the Paris classification) was suspected.",COMMON,185
+10.1016%j.cgh.2017.10.030,"patient_presentation: A 72-year-old woman was referred for evaluation of an incidentally found 4-cm pancreas cyst.
+imaging_test_with_photo: Given the size of the cyst, an endoscopic ultrasound with fine-needle aspiration was scheduled for evaluation. On endoscopic ultrasound, a 4-cm anechoic and septated lesion consistent with a cyst was seen in the body of the pancreas (Figure A).
+next_imaging: The cyst was first punctured with a 19-gauge fine-needle aspiration needle and a microbiopsy forceps was used to biopsy the wall of the cyst. Next, cyst fluid was aspirated in the usual manner. To our surprise, 5 mL of chylous fluid was aspirated (Figure B). The fluid results were as follows: 317 U/L amylase, 2.3 ng/mL carcinoembryonic antigen, 2670 mg/dL triglycerides, and 5 g/dL protein. 
+",The fluid appearance and the triglyceride level were diagnostic of a benign pancreatic lymphangioma (PL).,UNCOMMON,141
+10.1016%j.cgh.2018.03.005,"patient_presentation: A 61-year-old man was admitted to our institution with abdominal pain and diarrhea.
+additional_history: He has been treated with cetuximab, cisplatin, and 5-fluorouracil for postoperative recurrence of oral cancer. Because of therapeutic failure, 3 mg/kg nivolumab was started 6 months before his admission. Thereafter, he underwent nivolumab administration 12 times.
+imaging_test_with_photo: On admission, esophagogastroduodenoscopy (EGD) showed multiple ulcers in the duodenum (Figure A), and capsule endoscopy revealed erosions in the jejunum and ileum (Figure B).
+next_imaging: EGD performed 7 days after the initiation of steroid therapy showed healing of the duodenal mucosa (Figure D).
+","Based on his clinical course and these findings, nivolumab-induced autoimmune enteritis was suspected....The effectiveness of steroid therapy supported the hypothesis that his enteritis was induced by a nivolumab-associated autoimmune mechanism.",COMMON,96
+10.1016%j.cgh.2018.01.044,"patient_presentation: An 83-year-old female presented to our hospital with abdominal pain, loose stools and bright red blood per rectum.
+imaging_without_photo: CT abdomen showed thickening of sigmoid colon which was consistent with ischemic colitis. Incidentally, CT also revealed a 12 mm enhancing polypoid lesion in the ileum.
+imaging_test_with_photo: We performed video capsule endoscopy which showed a mobile submucosal polyp in the distal small bowel (a).
+next_imaging: Retrograde double-balloon enteroscopy was carried out, which demonstrated a 15mm smooth and firm submucosal polypoid lesion located approximately 70cm proximal to the ileocecal valve (b).
+",The features and immunohistochemical staining pattern were consistent with small bowel schwannoma which is an extremely rare condition.,UNCOMMON,111
+10.1016%j.cgh.2017.10.034,"patient_presentation: A 68-year-old man presented with several months of progressive dysphagia and 50-pound weight loss.
+additional_history: Endoscopic ultrasound and cross-sectional imaging, including a positron emission tomography scan demonstrating a highly positron emission tomography avid mass with no evidence of spread, suggested a T3 lesion.
+imaging_test_with_photo: Endoscopy revealed a firm mass at the gastroesophageal junction (Figure A).
+next_imaging: An esophagectomy was performed, which showed a well-circumscribed mass with tan-white ribbon-like architecture (Figure C).
+","These features are diagnostic of carcinoma cuniculatum, a rare form of very well-differentiated squamous cell carcinoma that has been reported in the oropharynx, skin, genitalia, and foot.",UNCOMMON,139

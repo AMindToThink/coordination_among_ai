@@ -1,0 +1,146 @@
+case_id,context,diagnosis,generated_diagnosis,evaluation,COMMON_UNCOMMON,global_pk
+10.1016%j.cgh.2018.01.019,"patient_presentation: A 66-year-old Hispanic male with history of HIV non-compliant with antiviral therapy (last CD4 of 88 cells/ŒºL), chronic HCV, chronic kidney disease on hemodialysis and hypertension who presented with a 2-day history of rectal bleeding associated to lower abdominal pain, nausea, anorexia and unintentional weight loss.
+imaging_test_with_photo: Colonoscopy showed multiple deep irregular ulcers with elevated erythematous borders throughout the colon with significant inflammatory process; multiple biopsies were taken (A, B).",...consistent with Cytomegalovirus....consistent with Histoplasma. This case illustrates a rare presentation of viral and fungal infectious colitides.,"Based on the information provided, the patient is a 66-year-old Hispanic male with a history of HIV who is non-compliant with antiviral therapy, resulting in a significantly low CD4 count of 88 cells/ŒºL. He also has chronic HCV, chronic kidney disease on hemodialysis, and hypertension. He presented with rectal bleeding, lower abdominal pain, nausea, anorexia, and unintentional weight loss. The colonoscopy revealed multiple deep irregular ulcers with elevated erythematous borders throughout the colon, along with a significant inflammatory process.
+
+Given the patient's immunocompromised status due to untreated HIV and the findings on colonoscopy, the differential diagnosis includes opportunistic infections and conditions common in individuals with AIDS. The colonoscopic findings of deep ulcers with erythematous borders are suggestive of cytomegalovirus (CMV) colitis, which is a common opportunistic infection in patients with advanced HIV/AIDS and low CD4 counts. CMV colitis typically presents with symptoms such as abdominal pain, diarrhea, and gastrointestinal bleeding, and the colonoscopy findings are consistent with CMV infection.
+
+Other potential diagnoses could include other opportunistic infections like herpes simplex virus (HSV) colitis or non-infectious causes such as inflammatory bowel disease, but the presentation and the patient's immunocompromised state strongly point towards CMV colitis.
+
+Final Diagnosis: CMV colitis",INCORRECT,COMMON,115
+10.1053%j.gastro.2016.11.054,"patient_presentation: A 45-year-old man presented with intermittent abdominal pain, dark urine, and constipation for 6 months.
+additional_history: The patient was discharged with abnormal liver biochemistry. For the past 4 weeks, the abdominal pain became diffuse, and the episodes lasted from a few minutes to several hours....He had consumed 100-g hot yellow rice wine (10 g alcohol) from the tin pot per day for 20 years. One year prior, he acquired a new tin pot to replace the old one.
+physical_exam: Upon examination, the skin and sclera were mildly icteric; there was diffuse abdominal pain on palpation. 
+initial_laboratory_results: Laboratory tests of the initial episode showed total bilirubin 109.9 Œºmol/L (reference range, 3.4-20.5), alanine aminotransferase 3500 U/L (reference range, 9-40), aspartate aminotransferase 1860 U/L (reference range, 15-40), gamma-glutamyl transferase 763 U/L (reference range, 10-60), and alkaline phosphatase 164 U/L (reference range, 45-125)....Laboratory tests on admission showed mild abnormal liver biochemistry, a normocytic anemia with a hemoglobin of 118 g/L (reference range, 130-175), creatinine 138 Œºmol/L (reference range, 59-104), and blood urea nitrogen 10.5 mmol/L (reference range, 2.85-7.14). 
+imaging_test_with_photo: A purple-blue line (Figure A) at the edge of the gums was noticed. 
+next_imaging: Abdominal anteroposterior radiograph showed multiple air‚Äìfluid levels and dilated bowel (Figure B).
+third_imaging: On day 3 of the admission, a repeated abdominal anteroposterior radiograph showed the air‚Äìfluid levels significantly decreased (Figure C) after administration with fasting water and gastrointestinal decompression.",Chronic lead poisoning,"The clinical presentation and laboratory findings of this patient are suggestive of lead poisoning. The key points leading to this diagnosis include:
+
+1. **Symptoms**: The patient has intermittent abdominal pain, dark urine, and constipation. Abdominal pain and constipation are classic symptoms of lead poisoning, often referred to as ""lead colic.""
+
+2. **History**: The patient has a history of consuming alcohol from a tin pot for 20 years, and he acquired a new tin pot one year prior to the onset of symptoms. Tin pots, especially if not properly manufactured, can be a source of lead exposure.
+
+3. **Physical Examination**: The presence of a ""purple-blue line"" at the edge of the gums is highly suggestive of lead poisoning. This is known as a ""lead line"" or Burton's line.
+
+4. **Laboratory Findings**: The patient has abnormal liver biochemistry, which can occur in lead poisoning due to liver damage. There is also normocytic anemia, which is common in lead poisoning due to interference with hemoglobin synthesis.
+
+5. **Imaging**: The abdominal radiographs showing air-fluid levels and dilated bowel are consistent with ileus, which can occur in lead poisoning due to its effects on the gastrointestinal tract.
+
+Given these findings, the most likely diagnosis is lead poisoning, likely due to chronic exposure from the new tin pot used for consuming alcohol.
+
+Final Diagnosis: Lead poisoning",CORRECT,UNCOMMON,213
+10.1016%j.cgh.2018.09.018,"patient_presentation: A 31-year-old man with history of living donor renal transplantation was admitted for 2 weeks of nonradiating epigastric abdominal pain and bilious emesis.
+physical_exam: Exam showed an obese, soft abdomen with normal bowel sounds and mild epigastric tenderness. 
+initial_laboratory_results:  Labs showed chronic normocytic anemia
+imaging_without_photo: Abdominal x-ray was unrevealing.
+imaging_test_with_photo: Push enteroscopy found 2 large duodenal and jejunal ulcers (Figure A and B).","Six weeks before presentation, he was diagnosed with renal graft failure due to cryocrystalglobulinemia.","Based on the information provided, the patient is a 31-year-old man with a history of living donor renal transplantation who presents with nonradiating epigastric abdominal pain and bilious emesis. The physical exam reveals mild epigastric tenderness, and the laboratory results show chronic normocytic anemia. Abdominal x-ray is unrevealing, but push enteroscopy reveals two large duodenal and jejunal ulcers.
+
+In a patient with a history of renal transplantation, it is important to consider the possibility of opportunistic infections or complications related to immunosuppressive therapy. The presence of large ulcers in the duodenum and jejunum is suggestive of a condition that causes ulceration in the gastrointestinal tract.
+
+One potential diagnosis to consider in this context is cytomegalovirus (CMV) infection. CMV is a common opportunistic infection in immunocompromised patients, such as those who have undergone organ transplantation. CMV can cause ulcerative lesions in the gastrointestinal tract, including the duodenum and jejunum, and may also lead to symptoms such as abdominal pain, nausea, and vomiting.
+
+Given the patient's history of renal transplantation, the presence of large ulcers in the duodenum and jejunum, and the symptoms of abdominal pain and bilious emesis, CMV infection is a likely diagnosis.
+
+Final Diagnosis: Cytomegalovirus (CMV) infection causing duodenal and jejunal ulcers.",INCORRECT,UNCOMMON,22
+10.1016%j.cgh.2017.11.029,"patient_presentation: A 53-year-old man presented with postprandial epigastric pain and weight loss for 2 months. 
+additional_history: He had no significant medical or family history.
+physical_exam: Physical examination was normal
+initial_laboratory_results: The laboratory results were unremarkable.
+imaging_test_with_photo: We performed an upper endoscopy, which showed a normal stomach and duodenum. However, the major papilla (Figure A) had an unusual appearance. We examined the patient using a duodenoscope and observed a fish-mouth-like papilla extruding thick mucus (Supplementary Video 1).
+next_imaging: A multiloculated cystic lesion (5 cm) communicating with the main pancreatic duct (Figure B) and causing severe duct dilatation (14 mm) was observed in the head of the pancreas. ","The fish-mouth appearance of papilla, although not always present (prevalence, 50%), is pathognomonic and specific (91%) for intraductal papillary mucinous neoplasm (IPMN) of the pancreas. We performed a magnetic resonance cholangiopancreatography, which confirmed our suspicion of IPMN....The overall findings were suggestive of a mixed-type IPMN with high-risk features.","Based on the provided information, the patient's presentation of postprandial epigastric pain and weight loss, along with the findings on imaging, are suggestive of a pancreatic cystic lesion. The endoscopic observation of a fish-mouth-like papilla extruding thick mucus is characteristic of a mucinous lesion. The multiloculated cystic lesion communicating with the main pancreatic duct and causing severe duct dilatation in the head of the pancreas is highly indicative of an Intraductal Papillary Mucinous Neoplasm (IPMN).
+
+IPMNs are known to cause dilation of the pancreatic duct due to the production of thick mucin, and the fish-mouth appearance of the papilla with mucus extrusion is a classic sign. The patient's symptoms, imaging findings, and endoscopic observations align with this diagnosis.
+
+Final Diagnosis: Intraductal Papillary Mucinous Neoplasm (IPMN)",CORRECT,COMMON,132
+10.1016%j.cgh.2018.01.014,"patient_presentation: A 28-year-old woman presented with epigastralgia.
+additional_history: She had no history of medical conditions, allergies, or drug use.
+imaging_test_with_photo: Computed tomography revealed free air and a perforation in the thickened stomach wall (Figure A). Emergency surgery revealed a 4-mm perforation in the greater curvature of the middle gastric body. Greater omentum filling was performed surgically.
+next_imaging: Afterwards, a proton pump inhibitor was administered. However, because epigastric discomfort persisted and the serum eosinophils increased to 1950/ŒºL (25.0%), esophagogastroduodenoscopy was performed 2 months later, revealing a discolored, edematous, depressed lesion with an ulcer at the perforated region (Figure B).
+third_imaging: The patient's symptoms improved immediately, and the lesion was healed 2 weeks later (Figure D).",Eosinophilic gastroenteritis (EG) presenting with gastric perforation was diagnosed.,"Based on the information provided, the patient initially presented with epigastralgia and was found to have a perforation in the stomach wall. The presence of free air and a perforation in the stomach wall on CT scan suggests a gastric perforation. The surgical intervention involved filling with the greater omentum, which is a common procedure to repair such perforations.
+
+Following surgery, the patient was treated with a proton pump inhibitor, which is standard for managing gastric ulcers or erosions. However, the persistence of epigastric discomfort and a significant increase in serum eosinophils to 1950/ŒºL (25.0%) is notable. Eosinophilia can be associated with several conditions, including eosinophilic gastrointestinal disorders.
+
+The esophagogastroduodenoscopy performed two months later revealed a discolored, edematous, depressed lesion with an ulcer at the perforated region. The presence of eosinophilia and the endoscopic findings suggest the possibility of eosinophilic gastritis, which can cause gastric wall thickening and ulceration.
+
+The patient's symptoms improved and the lesion healed within two weeks, which is consistent with the resolution of an inflammatory process, possibly due to the treatment with proton pump inhibitors and possibly dietary modifications or other interventions not detailed in the context.
+
+Given the eosinophilia, gastric perforation, and endoscopic findings, the most likely diagnosis is eosinophilic gastritis, which led to the gastric perforation.
+
+Final Diagnosis: Eosinophilic gastritis leading to gastric perforation.",CORRECT,COMMON,117
+10.1016%j.cgh.2017.09.035,"patient_presentation: A 70-year-old Asian man with a history of chronic hepatitis C, hepatocellular carcinoma, and an orthotopic liver transplantation 7 years ago, was referred to our institution for the evaluation of a liver mass in the transplanted liver.
+additional_history: The patient was immunosuppressed with tacrolimus. He also had a remote history of gastric adenocarcinoma treated wtih gastrectomy and adjuvant chemotherapy. He reported weakness, fatigue, a 10-pound weight loss, and an intermittent low-grade fever for the past 3 months.
+imaging_test_with_photo: Magnetic resonance imaging showed 3 ill-defined large liver masses, the largest measuring 6.3 x 4.6 cm (Figure A).",Hepatic actinomyces,"Based on the provided information, the patient is a 70-year-old man with a significant medical history including chronic hepatitis C, hepatocellular carcinoma, and a liver transplant 7 years ago. He is currently immunosuppressed with tacrolimus. His symptoms include weakness, fatigue, weight loss, and intermittent low-grade fever over the past 3 months. Imaging has revealed 3 ill-defined large liver masses in the transplanted liver.
+
+Given the patient's history of hepatocellular carcinoma and the presence of new liver masses in the transplanted liver, the most likely diagnosis is recurrent hepatocellular carcinoma in the transplanted liver. The patient's immunosuppressed state could contribute to the recurrence of malignancy. Additionally, the symptoms of weight loss, fatigue, and fever are consistent with a malignant process.
+
+Final Diagnosis: Recurrent hepatocellular carcinoma in the transplanted liver.",INCORRECT,UNCOMMON,159
+10.1053%j.gastro.2014.07.036,"patient_presentation: A 51-year-old seasonal farm worker with the human immunodeficiency virus (HIV; CD4 count, 122 cells/mm 3) presented with persistent unexplained diarrhea, fevers, and hiccups.
+initial_laboratory_results: Sputum analysis and subsequently bronchoscopy with extensive brushing revealed no evidence of acid-fast bacilli. He was anemic with a hemoglobin of 8.4 g/dL and his albumin level was decreased at 2.8 g/dL. Blood, stool, and urine cultures to evaluate his recurrent fevers were also noncontributory; thus, more extensive imaging was obtained. 
+imaging_test_with_photo: Although he had no pulmonary symptoms, the admission chest radiograph revealed bilateral miliary nodular opacities that were concerning for granulomatous processes including tuberculosis and fungal disease (Figure A).
+next_imaging: Abdominal CT demonstrated bowel thickening of the right hemicolon and proximal transverse colon as well as adjacent inflammatory changes (Figure B).
+third_imaging: Subsequent colonoscopy revealed multiple, small ulcers (Figure C).",Coccidioidomycosis colitis,"Based on the provided information, the patient is a 51-year-old seasonal farm worker with HIV and a CD4 count of 122 cells/mm¬≥, indicating significant immunosuppression. The patient presents with persistent diarrhea, fevers, and hiccups. The initial laboratory results show anemia and low albumin levels, and cultures for common infections are noncontributory. Imaging reveals bilateral miliary nodular opacities in the lungs and bowel thickening with ulcers in the colon.
+
+The combination of symptoms, imaging findings, and the patient's immunocompromised status suggests an opportunistic infection. The miliary pattern on the chest radiograph is concerning for a disseminated infection, and the colonoscopy findings of ulcers are indicative of gastrointestinal involvement.
+
+Given the patient's background, symptoms, and imaging findings, the most likely diagnosis is disseminated Mycobacterium avium complex (MAC) infection, which is common in patients with advanced HIV and low CD4 counts. MAC can cause pulmonary and gastrointestinal involvement, leading to symptoms such as diarrhea and systemic symptoms like fever.
+
+Final Diagnosis: Disseminated Mycobacterium avium complex (MAC) infection.",INCORRECT,UNCOMMON,234
+10.1016%j.cgh.2017.11.012,"patient_presentation: A 29-year-old woman presented with 7 years of abdominal pain, distension, bloating, incomplete rectal evacuation, and food intolerance. 
+additional_history: Prior gastrointestinal endoscopies, abdominal ultrasound, and computerized tomography (CT) scans were nondiagnostic. 
+physical_exam: Abdominal examination showed distension, tympanic percussion note, and general tenderness, but no guarding or rebound. Rectal examination showed high and sphincter tone, levator muscle tenderness, no perineal descent, and anal contraction while straining to evacuate the examining finger. The mean resting and sphincter pressure was 135 mm Hg (normal, 26-91 mm Hg).
+imaging_test_with_photo: Colonic transit by scintigraphy (Figure A) showed 44.8% isotope retained in the rectosigmoid region at 24 hours.
+next_imaging: The prior abdominal CT coronal image showed copious gas in the descending colon (Figure B) and rectal gas retention (Figure C), suggesting a rectal evacuation disorder with gas distension of the descending colon.
+third_imaging: The sagittal CT image (Figure D) showed gas configuration in the rectum reminiscent of a rat tail, similar to the appearance of the distal esophagus in achalasia of the cardia.","This gas shape suggests anal achalasia, which was recognized by Sir Arthur Hurst (1925): ""achalasia affects the sphincter ani, which fails to relax when the peristaltic wave which should evacuate the rectum reaches it...strictly comparable to...achalasia of the cardia.""","Based on the provided information, the patient presents with chronic abdominal pain, distension, bloating, and symptoms indicative of a rectal evacuation disorder. The physical examination reveals high anal sphincter tone and levator muscle tenderness, with no perineal descent. The colonic transit study shows significant retention in the rectosigmoid region, and CT imaging indicates gas retention and a ""rat tail"" appearance in the rectum.
+
+These findings are consistent with a condition known as ""anismus"" or ""dyssynergic defecation,"" which is a type of pelvic floor dysfunction where there is inappropriate contraction of the pelvic floor muscles during attempted defecation. This can lead to symptoms of constipation, abdominal pain, and bloating due to incomplete evacuation and gas retention.
+
+Final Diagnosis: Dyssynergic defecation (anismus)",INCORRECT,UNCOMMON,137
+10.1016%j.cgh.2018.08.072,"patient_presentation: A 4-year-old boy presented for esophagogastroduodenoscopy because of vomiting for 6 months.
+additional_history: His medical history showed a twin pregnancy with early gestation at week 28 (weight, 850 g), with several neonatal complications. Because of delayed meconiium passage, the preterm baby had water-soluable contrast media applied through a nasogastric tube. The contrast appeared in the depeer small bowel; a double bubble was not evident. Growth, weight gain and development were unremarkable thereafter. The recent esophagogastroduodenoscopy showed food retention in the stomach and duodenal bulb, the latter appearing dilated.
+imaging_test_with_photo: A small slit-like opening was identified at the superior angle, allowing passage into the descending duodenum (Figure A).
+next_imaging: During the examination, invagination of the lower duodenum into the bulb occurred repeatedly (Figure B).",Abdominal ultrasound reproduced endoscopic findings and a diagnosis of a high-grade late duodenal web was entertained.,"Based on the provided information, the 4-year-old boy has a history of vomiting for 6 months, food retention in the stomach and duodenal bulb, and a dilated duodenal bulb observed during esophagogastroduodenoscopy. Additionally, a small slit-like opening was identified at the superior angle, allowing passage into the descending duodenum, and there was repeated invagination of the lower duodenum into the bulb.
+
+These findings are suggestive of a condition known as ""duodenal web"" or ""antral web,"" which is a congenital condition where a membrane or web partially obstructs the duodenum. The small slit-like opening is characteristic of this condition, allowing only partial passage of contents, leading to the symptoms of vomiting and food retention. The repeated invagination could be due to the pressure dynamics caused by the partial obstruction.
+
+Final Diagnosis: Duodenal web (congenital duodenal obstruction).",CORRECT,UNCOMMON,30
+10.1016%j.cgh.2018.05.040,"patient_presentation: A 58-year-old woman presented with a 3-month history of diarrhea characterized by the passage of 10 to 12 loose, atery bowel movements per day.
+additional_history: Her past medical history included locally advanced pancreatic cancer on gemcitabine and paclitaxel therapy at presentation.
+physical_exam: Physical examination showed diffuse, mild tenderness.
+initial_laboratory_results: Laboratory studies showed mild normocytic anemia (hemoglobin and mean cell volume, 11.8 g/dL and 90.2 fL, respectively), while stool studies including Clostridium difficile toxin polymerase chain reaction were negative. 
+imaging_without_photo: A flexible sigmoidoscopy was endoscopically unremarkable.","Together, the clinical and histologic features were most suggestive of paclitaxel-associated diarrhea.","Based on the provided information, the patient is a 58-year-old woman with a history of locally advanced pancreatic cancer currently undergoing chemotherapy with gemcitabine and paclitaxel. She presents with a 3-month history of diarrhea, characterized by 10 to 12 loose, watery bowel movements per day. The physical examination revealed diffuse, mild tenderness, and laboratory results showed mild normocytic anemia. Stool studies, including tests for Clostridium difficile, were negative, and a flexible sigmoidoscopy was endoscopically unremarkable.
+
+Given the context of chemotherapy and the symptoms of chronic diarrhea, one potential cause to consider is chemotherapy-induced diarrhea, which can be a side effect of cancer treatments like gemcitabine and paclitaxel. These medications can cause gastrointestinal side effects, including diarrhea, due to their effects on rapidly dividing cells in the gastrointestinal tract.
+
+Other potential causes of diarrhea, such as infectious etiologies, have been largely ruled out by the negative stool studies, including Clostridium difficile testing. The unremarkable flexible sigmoidoscopy also suggests that there is no significant visible colonic pathology, such as inflammatory bowel disease, that could be contributing to the diarrhea.
+
+Considering these factors, the most likely diagnosis in this case is chemotherapy-induced diarrhea.
+
+Final Diagnosis: Chemotherapy-induced diarrhea.",CORRECT,UNCOMMON,67
+10.1016%j.cgh.2017.12.042,"patient_presentation: A 40-year-old man with HIV (CD4:218cells/mm^3) presented with fever, abdominal pain, and diarrhea three weeks after starting anti-retroviral therapy.
+additional_history: He was tachcardic, tachypneic, had cervical lymphadenopathy and a soft, non-tender abdomen.
+initial_laboratory_results: Labs showed: WBC: 3,900/ŒºL, hemoglobin: 7.2g/dL, platelets: 145,000/ŒºL, albumin: 20g/L (36-35g/L), LDH: 385IU/L (110-265IU/L), and haptoglobin: 2.95g/L (0.3-2.0g/L).
+imaging_test_with_photo: CT showed hepatosplenomegaly and fluid-filled small bowel with diffuse wall thickening (Figure A).
+next_imaging: Enteroscopy revealed rubbery raised red and purple lesions in the antrum (Figure B) and duodenum (Figure C).",Biopsy of the cervical lymphadenopathy confirmed KS.,"Based on the provided information, the patient is a 40-year-old man with HIV who presented with fever, abdominal pain, and diarrhea three weeks after starting antiretroviral therapy. His CD4 count is low at 218 cells/mm¬≥, indicating immunosuppression. The patient also has cervical lymphadenopathy, hepatosplenomegaly, and gastrointestinal symptoms with enteroscopy findings of rubbery raised red and purple lesions in the antrum and duodenum.
+
+The combination of these symptoms and findings suggests a possible opportunistic infection or malignancy associated with HIV. The raised red and purple lesions in the gastrointestinal tract are particularly suggestive of Kaposi's sarcoma, a vascular tumor commonly associated with HIV/AIDS. The patient's low CD4 count and the timing of symptoms following the initiation of antiretroviral therapy also suggest the possibility of immune reconstitution inflammatory syndrome (IRIS), which can unmask or worsen existing infections or malignancies.
+
+Considering all these factors, the most likely diagnosis is Kaposi's sarcoma involving the gastrointestinal tract, potentially exacerbated by IRIS.
+
+Final Diagnosis: Kaposi's sarcoma of the gastrointestinal tract, possibly associated with immune reconstitution inflammatory syndrome (IRIS).",CORRECT,UNCOMMON,126
+10.1016%j.cgh.2018.04.037,"patient_presentation: A 60-year-old chronic alcoholic presents with 1 day of severe epigastric pain and vomiting after drinking copious amounts of alcohol.
+physical_exam: Examination revealed a guarded abdomen with severe epigastric tenderness. He was afebrile, but had atrial tachyarrhythmia, tachypnoea and hypotension.
+initial_laboratory_results: Laboratory investigations demonstrate elevated amylase and lactate with severe metabolic acidosis. Liver function tests were normal.
+imaging_test_with_photo: A computed tomography scan of the abdomen and pelvis showed extensive retroperitoneal gas around the pancreas extending along the duodenum into the sub hepatic region (Figure 1).
+next_imaging: The proximal portion of the pancreas appeared largely replaced by gas (Figure 2). The biliary tree was not dilated. There was no evidence of perforation.","A diagnosis of severe acute emphysematous pancreatitis was made, likely from alcoholism.","Based on the provided information, the patient is a 60-year-old chronic alcoholic presenting with severe epigastric pain and vomiting after alcohol consumption. The physical examination shows a guarded abdomen with severe epigastric tenderness, atrial tachyarrhythmia, tachypnoea, and hypotension. Laboratory results indicate elevated amylase and lactate levels, along with severe metabolic acidosis. Imaging reveals extensive retroperitoneal gas around the pancreas extending into the subhepatic region, with the proximal portion of the pancreas largely replaced by gas, but no evidence of perforation.
+
+The combination of these findings‚Äîparticularly the presence of retroperitoneal gas around the pancreas and the replacement of pancreatic tissue with gas‚Äîstrongly suggests emphysematous pancreatitis. This is a rare and severe form of acute pancreatitis characterized by the presence of gas-forming organisms in the pancreatic tissue, often seen in patients with a history of alcohol abuse or in those with compromised immune systems.
+
+Final Diagnosis: Emphysematous pancreatitis",CORRECT,COMMON,82
+10.1016%j.cgh.2018.04.053,"patient_presentation: A 74-year-old woman presented for colonscopy for a history of adenomatous polyps.
+imaging_test_with_photo: Colonoscopy revealed localized erythema in the sigmoid colon (Figure 1).
+next_imaging: CT scan showed evidence of hysterectomy, sigmoid thickening and nodular density along the right vaginal cuff (Figure 3, arrow).",Primary fallopian tube cancer (PFTC),"Based on the information provided, the patient is a 74-year-old woman with a history of adenomatous polyps who underwent a colonoscopy. The colonoscopy revealed localized erythema in the sigmoid colon. A subsequent CT scan showed sigmoid thickening and nodular density along the right vaginal cuff. 
+
+The findings of sigmoid thickening and nodular density along the vaginal cuff in a patient with a history of hysterectomy may suggest the possibility of a malignancy or metastatic disease. The history of adenomatous polyps and the localized erythema in the sigmoid colon could be related to colorectal pathology, but the nodular density along the vaginal cuff raises concern for possible metastatic spread or a secondary primary malignancy.
+
+Given the age of the patient and the imaging findings, one possible diagnosis to consider is a colorectal cancer with potential metastatic spread to the vaginal cuff area. Another possibility could be a primary vaginal or pelvic malignancy with involvement of the sigmoid colon.
+
+Final Diagnosis: Colorectal cancer with potential metastatic spread to the vaginal cuff.",INCORRECT,UNCOMMON,79

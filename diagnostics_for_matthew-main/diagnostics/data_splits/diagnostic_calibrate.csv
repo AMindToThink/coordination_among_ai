@@ -1,0 +1,79 @@
+case_id,context,diagnosis,COMMON_UNCOMMON,global_pk
+10.1053%j.gastro.2016.08.048,"patient_presentation: A 14-year-old girl of African descent, presented with severe abdominal pain at the pediatric department. 
+additional_history: The pain had started 3 days earlier and initially was intermittent, diffuse, and cramping. At presentation it had become continuous, progressively increasing in intensity, and accompanied by vomiting up to 3 times a day. She reported the tendency to move around constantly in search of a comfortable position. There was no fever, diarrhea, or dysuria and she regularly passed stool. Her medical history was unremarkable and she claimed not to be sexually active. 
+physical_exam: On clinical examination, a sick-looking girl was noted with normal vital signs. Auscultation of heart and lungs revealed no abnormalities. A non-distended abdomen with reduced abdominal peristalsis was noted in addition to diffuse tenderness at the slightest touch, hampering deep palpation. No muscle guarding was noted, however. The intra-abdominal organs could not be palpated and there was no vaginal discharge.
+initial_laboratory_results: Her laboratory results showed hemoglobin of 8.6 g/dL, mean corpuscular volume of 67.3 fL, leukocytes of 10.2 x 10^3/μL, platelets of 394 x 10^3 μ/mL, serum iron of 20 μg/dL, C-reactive protein of 32.2 mg/dL, serum creatinine of 0.76 mg/dL, and blood urea nitrogen of 20 mg/dL. In addition, normal coagulation times, glucose, electrolytes, and liver enzymes were noted. Her urinalysis showed microscopic leukocyturia and hematuria with mild proteinuria (0.39 g/L), raising suspicion of a urinary tract infection. Pregnancy testing was negative.
+imaging_without_photo: An ultrasound of the abdomen was done and showed some free abdominal fluid, but the appendix could not be identified. Other abdominal organs including the kidneys and gallbladder did not show stones or other abnormalities. To exclude a surgical origin a computed tomography (CT) of the abdomen with oral contrast was performed.
+imaging_test_with_photo: Computed tomography imaging (Figure A) revealed the presence of free abdominal fluid, but once again no appendix could be identified. There were also signs of small bowel obstruction with a positive small bowel feces sign.
+",,COMMON,216
+10.1016%j.cgh.2018.08.006,"patient_presentation: A 74-year-old man received systemic chemotherapy for advanced gastric cancer for 11 months.
+additional_history: After 4 courses of chemotherapy, the supraclavicular and paraaortic lymph node metastases had become smaller, and surgical resection of the primary tumor was scheduled. Fluorodeoxyglucose-positron emission tomography was performed for preoperative restaging of cancer.
+imaging_test_with_photo: Fluorodeoxyglucose-positron emission tomography (Figure A) detected a significant accumulation of glucose analogues in the duodenum, in addition to the primary tumor of gastric cancer and lymph node metastasis.
+next_imaging: Esophagogastroduodenoscopy confirmed many whitish, flat, and polypoid lesions in the duodenum (duodenal bulb (Figure B)...
+third_imaging: ...and descending part (Figure C)).
+","Distant metastasis of cancer to the gastrointestinal tract often takes the form of a submucosal tumor, while intramucosal metastasis can take an epithelial tumor-like form.",COMMON,46
+10.1053%j.gastro.2018.10.002,"patient_presentation: A 60-year-old man with a past medical history of long-standing gastroesophageal reflux disease, treated surgically 12 years before, was referred to esophagogastroduodenoscopy (EGD) owing to increasing heartburn.
+additional_history: Additional symptoms were denied.
+physical_exam: Physical examination...were unremarkable.
+initial_laboratory_results: ...laboratory findings were unremarkable. 
+imaging_test_with_photo: EGD disclosed 2 blue-toned, well-defined, subepithelial lesions in the cardia, approximately 15 mm in diameter (Figure A, B).
+next_imaging: We performed endoscopic ultrasound (GF- UCT180, Olympus Medical Systems, Tokyo, Japan) that shown 2 well-demarked, rectangle-shaped, homogenous, and hypoechogenic areas, 15 x 8 mm in size (Figure C).
+","The mucosa of the fundus and gastric body was congestive, with diffuse red spots. No other lesions were seen on EGD. Subsequently, the patient was referred to our hospital for further evaluation....These lesions had no Doppler enhancement and an imprecise location within the digestive wall layers.",UNCOMMON,201
+10.1016%j.cgh.2017.12.050,"patient_presentation: A 42-year-old male was admitted to the emergency department with pain and abdominal distension.
+imaging_test_with_photo: A sigmoid dilatation with coffee bean morphology was objectified in an abdominal X-ray (image A), being diagnosed of sigmoid volvulus. A colonoscopy did not resolve the obstruction.
+next_imaging: CT-scan (image B) showed a complicated sigmoid volvulus with intra-abdominal free fluid and a misplaced liver, in the left side of the abdomen.
+","Surgical intervention was performed finding a megacolon with a sigmoid volvulus, and confirming the anomalous position of the liver.",COMMON,124
+10.1016%j.cgh.2018.08.010,"patient_presentation: A 79-year-old man presented to our department with a 2-week history of urinary urgency and fever.
+additional_history: His medical history was notable for multiple ileal ulcers that were diagnosed by colonoscopy 1 year ago; aspirin was considered as the cause and then was stopped.
+initial_laboratory_results: Laboratory studies included a white blood cell count of 33,000/mm^3 and urine white blood cell count of 11,292/μL. Meropenem, piperacillin/tazobactam, linezolid, and levofloxacin were administered according to a drug sensitivity test.
+imaging_test_with_photo: Magnetic resonance urography showed an enterovesical fistula (Figure A, arrow)...
+next_imaging: ...and air in the bladder (Figure B, arrow), which was confirmed by cystoscopy. Repair of the enterovesical fistula with ileocecal resection was performed.
+",...suggestive of Crohn's disease.,COMMON,45
+10.1016%j.cgh.2017.10.013,"patient_presentation: An 84-year-old woman presented with hematemesis and epigastric pain.
+additional_history: Her medical history was notable for a cerebrovascular accident, and she was taking aspirin and nonsteroidal anti-inflammatory drugs.
+initial_laboratory_results: Her serum hemoglobin level decreased to 6.7 g/dL (range, 11-17 g/dL), and her blood urea nitrogen level increased to 107 mg/dL (range, 17-43 mg/dL).
+imaging_test_with_photo: An esophagogastroduodenoscopy (EGD) was performed, which showed a large duodenal ulcer (DU) with an adherent clot and an orifice suggestive of perforation (Figure A).
+next_imaging: The EGD was aborted and an urgent abdominal computed tomography showed no pneumoperitoneum, but there was pneumobilia suggestive of a bilioenteric fistula (Figure B).
+third_imaging: The patient had recurrent bleeding and another EGD was performed, showing a large ulcer with oozing bleeding and bile emanating from the abnormal orifice (Figures C and D).
+",Our patient had a choledochoduodenal fistula (CDF) that was confused with a duodenal perforation.,UNCOMMON,144
+10.1016%j.cgh.2020.04.066,"patient_presentation: A 66-year-old man who underwent an autologous stem cell transplant 10 months prior for multiple myeloma presented with cyclical fevers and weight loss.
+physical_exam: Examination was remarkable only for a fever of 39.1°C.
+initial_laboratory_results: Infectious workup was unrevealing....CA 19-9 was normal
+imaging_test_with_photo: Contrast-enhanced computed tomography revealed a large (11 x 8.9 cm), ill-defined, hypodense lesion within the right liver lobe (Figure A).
+next_imaging: One cycle of palliative chemotherapy including fluorouracil and oxaliplatin was given. A repeat contrast-enhanced compute tomography performed 7 days after showed rapid expansion of the tumor, now measuring 15 x 9 cm (Figure C).
+third_imaging: Autopsy showed extensive tumor involvement of the hepatic parenchyma (Figure D), and numerous peritoneal metastases were also found. 
+",SiCC is a rare histoogical variant of intrahepatic cholangiocarcinoma.,UNCOMMON,6
+10.1053%j.gastro.2013.09.022,"patient_presentation: A 47-year-old man was admitted with a chief complaint of perianal swelling pain for 3 months.
+physical_exam: Rectal examination indicated a tentative diagnosis of rectal mass.
+initial_laboratory_results: Tumor markers, including carcinoembryonic antigen, alfa-fetoprotein, prostate-specific antigen, carbohydrate antigen (CA)-199, CA-125, CA-724, and CA-242 were all within the normal range. 
+imaging_without_photo: Colonoscopy and ultrasound colonoscopy revealed an external compression on the anorectum on April 18, 2011.
+imaging_test_with_photo: Magnetic resonance imaging on April 14, 2011 demonstrated “a pelvic cystic and solid mass in the anterior aspect of the sacrum, which was suspected as an abscess or tumor” (Figure A, B).
+","On April 19, 2011, because the results of transrectal ultrasonography and contrast-enhanced ultrasonography showed a low-echo area with high possibility to be an abscess, the patient underwent ultrasound-guided puncturing and a drainage tubule was implanted into the cyst, from which approximately 250 mL of tawny liquid were drained.",COMMON,240
+10.1016%j.cgh.2017.09.039,"patient_presentation: A 38-year-old man was referred for endoscopic retrograde cholangiopancreatography.
+additional_history: A gastroduodenoscopy performed elsewhere for chronic dyspepsia showed a foreign body in the duodenum that was considered to be an endoprothesis in either the pancreas or biliary tract. His medical history showed previous hospital admissions as a result of dyspepsia in 2012 and 2015, and the patient had been homeless for several months in 2012. Laboratory tests in 2012 showed an increased amylase level of 575 U/L (normal range, 0-100 U/L), but at these previous admissions the patient repeatedly had left the hospital before further imaging had taken place.
+imaging_test_with_photo: An abdominal radiograph did not show any endoprothesis in the pancreas or biliary tract (Figure A).
+next_imaging: Gastroduodenoscopy was repeated and showed a large plastic fork or spoon in the second part of the duodenum (Figure B), which could not be mobilized into the stomach endoscopically.
+third_imaging: A computed tomography (Figure C) ruled out perforation of the duodenal wall and a laparoscopy was performed.
+","...large plastic fork or spoon in the second part of the duodenum....The consulted psychiatrist diagnosed a personality disorder, without signs of active psychosis.",UNCOMMON,155
+10.1016%j.cgh.2018.04.011,"patient_presentation: An 89-year-old female with metastatic poorly differentiated squamous cell carcinoma of the cervix, status post palliative radiation therapy to the pelvic and retroperitoneal regions, presented wtih solid-food dysphagia.
+additional_history: Four weeks later, dysphagia progressed to both solids and liquids, requiring repeated dilation in the same segment.
+imaging_test_with_photo: Barium esophagram revealed a 4-cm mid-esophageal stricture (Figure A). Esophagogastroduodenoscopy revealed a smooth, non-ulcerating mid-esophageal 10-mm narrowing, which was dilated with symptomatic relief.
+next_imaging: PET-CT showed extensive para-aortic lymphadenopathy with mediastinal hypermetabolic enhancement, suggesting malignant metastasis with extrinsic esophageal compression (Figure B). Esophageal endoscopic ultrasound demonstrated a 17-mm deep, 50-mm long hypoechoic area that was consistent with compressive mediastinal lymphadenopathy.
+",...suggesting malignant metastasis with extrinsic esophageal compression.,COMMON,86
+10.1016%j.cgh.2018.01.013,"patient_presentation: A 55-year-old man was referred to our center because of vague abdominal symptoms.
+additional_history: His past history, physical findings, and laboratory examinations were unremarkable.
+initial_laboratory_results: His serum triglyceride, low-density lipoprotein cholesterol, and high-density lipoprotein cholesterol levels were normal.
+imaging_test_with_photo: Abdominal computed tomography showed segmental wall thickening of the ileum (Figure A, arrows).
+next_imaging: A mildly narrowed segment of the middle ileal lumen with whitish yellow villi, 20 cm in length, was observed by retrograde double balloon enteroscopy (Figure B).
+","Mucinous material in their cytoplasm was negative for periodic acid-Schiff, excluding the accumulation of muciphages and Whipple disease. Given these findings, he was diagnosed with segmental ileal xanthomatosis.",UNCOMMON,118
+10.1016%j.cgh.2018.09.003,"patient_presentation: A computed tomography scan of a 42-year-old man show enlarged mesenteric lymphadenopathy with dilated midileal small-bowel loop containing nodular wall thickening and mucosal hyperenhancement (Figure A). He was referred for antegrade double-balloon enteroscopy (DBE). 
+next_imaging: Antegrade DBE showed a large diverticulum with prominent mucosal folds, focal thickening, and an area of ulceration (Figure B) at an insertion depth of 20 feet. Multiple biopsy specimens were taken.
+",The patient was diagnosed with undifferentiated carcinoma arising in ectopic gastric tissue in the small bowel.,UNCOMMON,25
+10.1053%j.gastro.2017.05.030,"patient_presentation: A 62-year-old man was referred to our hospital with 2 years of recurrent symptomatic melena requiring multiple blood transfusions and iron therapy. 
+additional_history: His past medical history was not significant.
+physical_exam: His physical examination was unremarkable...
+initial_laboratory_results: ...and laboratory tests were significant for mild anemia (hemoglobin, 11 g/L; mean corpuscular volume,96.9 fL).
+imaging_test_with_photo: Initial bidirectional endoscopy revealed small amount of hematin stain in the hepatic flexure and mild ileum erythema was found on capsule endoscopy (Figure A).
+next_imaging: Finally, on 99Tc-tagged red blood cell scan, an area of hemorrhage was located to the jejunum (Figure B).
+third_imaging: This procedure was followed with double balloon enteroscopy, which revealed a small bleeding ileum ulcer with some surrounding erythema (Figure C, D).
+","Neither of these findings was congruent with his clinical presentation; thus, further evaluations using computed tomography enterography was performed and again this was unrevealing....Three-dimensional reconstructions showed no vascular malformations and the patient was discharged. Twenty days later, the patient was readmitted for recurrent melena and his hemoglobin had decreased from 11.5 to 5.4 g/dL....This area was successfully treated with argon plasma coagulation. Twenty days later, the patient returned to our hospital again with melena and new-onset right arm pain. ",UNCOMMON,208
