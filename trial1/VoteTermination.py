@@ -7,11 +7,11 @@ class VoteTermination():
 			num_options: number of letter choices (eg A,B,C, and D would mean num_options = 4)
 			quorum_fraction: greater than this fraction of voters must select an answer before it is selected by the group. Defaults to .5
 		"""
-		self.num_voters = num_voters
-		self.num_options = num_options
+		self.num_voters:int = num_voters
+		self.num_options:int = num_options
 		self.vote_queue:list[str | None] = [None] * self.num_voters
-		self.quorum_fraction = quorum_fraction
-		self.answer_format = answer_format
+		self.quorum_fraction:float = quorum_fraction
+		self.answer_format:str = answer_format
 		self.result:str|None = None
 
 	
