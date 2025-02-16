@@ -16,14 +16,18 @@ class VoteTermination():
 
 	
 	def check_termination(self, msg: dict) -> bool:
+		def no_vote():
+			self.vote_queue.pop(0)
+			self.vote_queue.append(None)
+			# The answer_format is not in the expected format if no "{}" is found.
+			return False	
 		# Check if the answer format appears within the message.
 		content = msg['content']
 		
 		# Find the position of "{}" in the answer format
 		brace_pos = self.answer_format.find("{}")
 		if brace_pos == -1:
-			# The answer_format is not in the expected format if no "{}" is found.
-			return False
+			return no_vote()
 
 		# Split the answer_format into a prefix and suffix.
 		prefix = self.answer_format[:brace_pos]
@@ -32,7 +36,7 @@ class VoteTermination():
 		# Ensure that the prefix exists in the content.
 		start_idx = content.find(prefix)
 		if start_idx == -1:
-			return False
+			return no_vote()
 		
 		# The answer should immediately follow the prefix.
 		answer_start = start_idx + len(prefix)
@@ -41,7 +45,7 @@ class VoteTermination():
 		if suffix:
 			answer_end = content.find(suffix, answer_start)
 			if answer_end == -1:
-				return False
+				return no_vote()
 			answer = content[answer_start:answer_end]
 		else:
 			# If no suffix is defined, assume the answer extends to the rest of the content.
@@ -52,7 +56,7 @@ class VoteTermination():
 		
 		# Make sure the answer is valid (in this case, a single letter among the valid options).
 		if answer not in {'A', 'B', 'C', 'D'}:
-			return False
+			return no_vote()
 
 		# Update the vote queue with the new vote.
 		self.vote_queue.pop(0)
