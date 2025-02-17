@@ -84,7 +84,8 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
         for option, count in votes.items():
             if count > self._num_voters * self.quorum_fraction:
                 self._terminated = True
-                return StopMessage(content=f"Answer '{option}' chosen", source="VoteMentionTermination")
+                # The answer must be first so that message.content[0] is the answer.
+                return StopMessage(content=f"{option} answer chosen", source="VoteMentionTermination")
 
         # if isinstance(message.content, str) and self._answer_format in message.content:
         #     self._terminated = True
