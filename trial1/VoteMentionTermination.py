@@ -48,6 +48,7 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
     async def __call__(self, messages: Sequence[AgentEvent | ChatMessage]) -> StopMessage | None:
         if self._terminated:
             raise TerminatedException("Termination condition has already been reached")
+        # import pdb;pdb.set_trace()
         for message in messages:
             if self._sources is not None and message.source not in self._sources:
                 continue
@@ -59,20 +60,26 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
                 continue
             answer_start = start_idx + len(prefix)
 
-            if suffix:
-                answer_end = message.content.find(suffix, answer_start)
-                assert answer_end != -1, "Why was nothing found after the answer, when empty string should be allowed? Something is wrong here."
-                answer = message.content[answer_start:answer_end]
-            else:
-                answer = message.content[answer_start:]
-            answer = answer.strip()
-            if not (len(answer) == 1 and answer.isupper()):
+            if answer_start >= len(message.content):
+                continue
+            
+            answer = message.content[answer_start]
+            # if suffix:
+            #     answer_end = message.content.find(suffix, answer_start)
+            #     assert answer_end != -1, "Why was nothing found after the answer, when empty string should be allowed? Something is wrong here."
+            #     answer = message.content[answer_start:answer_end]
+            # else:
+            #     answer = message.content[answer_start:]
+            # answer = answer.strip()
+            if not answer.isupper():
                 continue
             self.vote_dict[message.source] = answer
 
         votes = {}
         for _, answer in self.vote_dict.items():
             votes[answer] = votes.get(answer, 0) + 1
+        # import pdb;pdb.set_trace()
+        # print(votes)
 
         for option, count in votes.items():
             if count > self._num_voters * self.quorum_fraction:
@@ -93,6 +100,7 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
 
 
     async def reset(self) -> None:
+        self.vote_dict = {}
         self._terminated = False
 
     def _to_config(self) -> VoteMentionTerminationConfig:
