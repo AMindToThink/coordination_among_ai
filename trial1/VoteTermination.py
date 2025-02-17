@@ -1,3 +1,10 @@
+from autogen_agentchat.base import TerminatedException
+
+def raise_deprecated_error():
+    raise DeprecationWarning("VoteTermination is deprecated. Please use VoteMentionTermination instead.")
+
+raise_deprecated_error()
+
 class VoteTermination():
 	def __init__(self, num_voters:int, quorum_fraction:float=.5, answer_format:str="Answer: {}"):
 		"""
