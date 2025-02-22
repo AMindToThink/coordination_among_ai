@@ -1,0 +1,500 @@
+   47  git commit -am "reduce r to 4"
+   48  git push origin main
+   49  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+   50  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+   51  mkdir PaperKeyWordsPublic
+   52  cd PaperKeyWordsPublic/
+   53  git init
+   54  git remote add origin git@github.com:AMindToThink/PaperKeyWords.git
+   55  git fetch origin removing-keys
+   56  git remote add origin https://github.com/AMindToThink/PaperKeyWords.git
+   57  git remote remove origin
+   58  git remote add origin https://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@github.com/AMindToThink/PaperKeyWords.git
+   59  git config --global credential.helper store
+   60  git config --global credential.helper cache
+   61  git fetch origin removing-keys
+   62  git checkout origin/removing-keys
+   63  git checkout -b main
+   64  git add .
+   65  git commit -m "Initial commit"
+   66  git remote remove origin
+   67  git remote add origin git@github.com:AMindToThink/PaperKeyWordsPublic.git
+   68  git push -u origin main
+   69  git remote remove origin
+   70  git remote add origin https://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@github.com/AMindToThink/PaperKeyWordsPublic.git
+   71  git push -u origin main
+   72  git push -u origin main
+   73  cd ..
+   74  rm -rf PaperKeyWordsPublic
+   75  mkdir PublicPaperKeyWords
+   76  cd PublicPaperKeyWords/
+   77  git init
+   78  cd ../PaperKeyWords
+   79  cp -r . ../PublicPaperKeyWords/ --exclude=".git" --exclude=".gitignore" --exclude=".gitattributes" --exclude=".github"
+   80  cp -r * ../PublicPaperKeyWords/
+   81  cd ../PublicPaperKeyWords/
+   82  ls -la
+   83  pwd
+   84  conda deactivate
+   85  conda env list
+   86  conda activate autogen
+   87  cd practices/
+   88  python openrouter.py 
+   89  python openrouter.py 
+   90  python openrouter.py 
+   91  export OPENROUTER_API_KEY=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
+   92  python openrouter
+   93  python openrouter.py
+   94  python openrouterdeepseekfree.py 
+   95  python openrouterdeepseekfree.py 
+   96  pip install pandas
+   97  pip install pyarrow
+   98  pip install fsspec
+   99  conda deactivate
+  100  conda create -n langchain python=3.11 -y
+  101  conda activate langchain
+  102  pip install langchain
+  103  conda install langchain -c conda-forge
+  104  pip install -U langsmith openai pydantic
+  105  pip install -U langchain langchain-openai
+  106  vim ~/.bash_profile
+  107  source ~/.bash_profile
+  108  pip install -U langchain langchain-openai
+  109  cd ..
+  110  cd coordination_among_ai/langsmith-swe/
+  111  python langsmith.py 
+  112  python langsmith_tutorial.py 
+  113  python langsmith_tutorial.py 
+  114  pip install pandas
+  115  python
+  116  pip install pandas
+  117  conda install pandas
+  118  which python
+  119  python -m pip list
+  120  python -m pip list | grep pyarrow
+  121  python -m pip list | grep fastparquet
+  122  pip install pyarrow
+  123  python -m pip list | grep pyarrow
+  124  which python
+  125  pip install langchain-openai
+  126  pip install --upgrade pip
+  127  cd ..
+  128  git add .
+  129  git commit -am "Start langsmith stuffs"
+  130  git push origin main
+  131  pip install datasets
+  132  python
+  133  conda install datasets
+  134  clear
+  135  vim ~/.bash_profile
+  136  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  137  echo $LANGSMITH_TRACING
+  138  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  139  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  140  cd ..
+  141  cursor .
+  142  pass insert openrouter/sweteam
+  143  pass insert openrouter/sweteam
+  144  pass openrouter/sweteam
+  145  pass insert langchain/key1
+  146  pass insert langchain/key1
+  147  vim ~/.bash_profile
+  148  python
+  149  echo $LANGSMITH_TRACING
+  150  export LANGSMITH_TRACING=true
+  151  python
+  152  echo $SHELL
+  153  conda deactivate;conda activate langchani
+  154  ;conda activate langchain
+  155  conda activate langchain
+  156  python
+  157  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  158  conda activate langchain
+  159  echo $LANGSMITH_TRACING
+  160  source ~/.bash_profile
+  161  vim ~/.bash_profile
+  162  source ~/.bash_profile
+  163  vim ~/.bash_profile
+  164  open -R ~/.bash_profile
+  165  conda init bash
+  166  conda create -n test python=3.11 -y
+  167  conda activate test
+  168  python
+  169  echo $LANGSMITH_TRACING
+  170  /usr/bin/python3 /Users/matthew.khoriaty/.vscode/extensions/ms-python.python-2024.23.2025012401-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.vscode/extensions/ms-python.python-2024.23.2025012401-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  171  code .
+  172  cursor .
+  173  pwd
+  174  vim ~/.bash_profile
+  175  pass
+  176  run_with_timer ls
+  177  run_with_timer ls
+  178  run_with_timer python
+  179  conda deactivate
+  180  conda deactivate
+  181  conda deactivate
+  182  conda activate langchain
+  183  pip install git+https://github.com/princeton-nlp/SWE-bench.git
+  184  python -m swebench.harness.run_evaluation \    --predictions_path gold \    --max_workers 1 \    --instance_ids sympy__sympy-20590 \    --run_id validate-gold
+  185  git clone git@github.com:princeton-nlp/SWE-bench.git \ cd SWE-bench \ pip install -e .
+  186  git clone git@github.com:princeton-nlp/SWE-bench.git
+  187  git clone https://github.com/swe-bench/SWE-bench.git
+  188  cd SWE-bench/
+  189  pip uninstall swebench
+  190  pip install -e .
+  191  python -m swebench.harness.run_evaluation \    --predictions_path gold \    --max_workers 1 \    --instance_ids sympy__sympy-20590 \    --run_id validate-gold
+  192  ls
+  193  cd swebench
+  194  ls
+  195  cd harness/
+  196  ls
+  197  python -m swebench.harness.run_evaluation --predictions_path gold --max_workers 1 --instance_ids sympy__sympy-20590 --run_id validate-gold
+  198  python -m swebench.harness.run_evaluation --predictions_path gold --max_workers 1 --instance_ids sympy__sympy-20590 --run_id validate-gold
+  199  ls
+  200  docker login
+  201  python -m swebench.harness.run_evaluation --predictions_path gold --max_workers 1 --instance_ids sympy__sympy-20590 --run_id validate-gold
+  202  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  203  /Users/matthew.khoriaty/Desktop/research/coordination_among_ai
+  204  cd /Users/matthew.khoriaty/Desktop/research/coordination_among_ai
+  205  cursor .
+  206  vim ~/.bash_profile
+  207  pwd
+  208  vim ~/.bash_profile
+  209  pass insert sb-cli/key1
+  210  conda activate langchain
+  211  ls
+  212  cd SWE-bench/
+  213  python -m swebench.harness.run_evaluation     --predictions_path gold     --max_workers 1     --instance_ids sympy__sympy-20590     --run_id validate-gold
+  214  cd ..
+  215  git add .
+  216  git commit -am "swe tutorial continues but eats up my ram or something error code 137"
+  217  git push origin main
+  218  python -m swebench.harness.run_evaluation \ 
+  219  python -m swebench.harness.run_evaluation \ --dataset_name princeton-nlp/SWE-bench/dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 8 --run_id 1
+  220  python -m swebench.harness.run_evaluation \ --dataset_name princeton-nlp/SWE-bench --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 8 --run_id 1
+  221  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench/dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 8 --run_id 1
+  222  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench/dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 8 --run_id 1
+  223  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench/dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 8 --run_id 1 --split dev
+  224  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench/dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.jsonl --max_workers 8 --run_id 1 --split dev
+  225  pwd
+  226  cd SWE-bench/
+  227  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench/dev --predictions_path ../langsmith-swe/model_predictions.jsonl --max_workers 8 --run_id 1 --split dev
+  228  ls
+  229  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.jsonl --max_workers 1 --run_id 1 --split dev
+  230  python
+  231  cd ..
+  232  git add .
+  233  git commit -am "switching to cli swe"
+  234  git push origin main
+  235  git clone https://github.com/swe-bench/experiments.git
+  236  cd swe-bench-experiments/
+  237  find . -name "*.jsonl" -exec wc -l {} \; | awk '$1 >= 20 && $1 <= 30 {print}'
+  238  cd ..
+  239  git add .
+  240  git commit -am "Push again"
+  241  docker logs help
+  242  docker logs --help
+  243  docker logs --since=1h 'sha256:809e03b1285611e4e654c14b9baa304ce43b95aa5ceff8c4bd2a185c22d4e013'
+  244  docker history sweb.env.py.arm64.d63b1c500935ac4c0f1ed1
+  245  conda activate langchain
+  246  cd SWE-bench/
+  247  python -m swebench.harness.build_images --instance_ids pvlib__pvlib-python-823
+  248  python -m swebench.harness.build_images --build_base_images
+  249  pip install sb-cli
+  250  pip install sb-cli
+  251  cd ..
+  252  cd sb-cli-main/
+  253  ls
+  254  pip install -e .
+  255  conda deactivate
+  256  conda create -n swecli python=3.9.4 -y
+  257  conda activate swecli
+  258  sb-cli gen-api-key matthewkhoriaty2026@u.northwestern.edu
+  259  pip install -e .
+  260  python --version
+  261  conda deactivate
+  262  conda remove -n swecli --all
+  263  conda create -n swecli python=3.12 -y && conda activate swecli && pip install -e .
+  264  which python
+  265  python --version
+  266  which pip
+  267  which pip
+  268  pip --version
+  269  python -m pip install -e .
+  270  sb-cli gen-api-key matthewkhoriaty2026@u.northwestern.edu
+  271  sb-cli verify-api-key 2818753
+  272  sb-cli verify-api-key 2818753
+  273  echo $SWEBENCH_API_KEY
+  274  python
+  275  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  276  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  277  sb-cli verify-api-key 2818753
+  278  conda activate swecli
+  279  sb-cli verify-api-key 2818753
+  280  sb-cli submit swe-bench-m dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.jsonl --run_id 2
+  281  sb-cli submit swe-bench-m dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.jsonl --run_id 00000
+  282  sb-cli submit swe-bench dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.jsonl --run_id 00000
+  283  sb-cli list-runs swe-bench-m dev
+  284  sb-cli submit swe-bench dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.jsonl --run_id 00000
+  285  sb-cli submit swe-bench-m dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.jsonl --run_id 00000
+  286  sb-cli submit swe-bench-m dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --run_id 00000
+  287  sb-cli submit swe-bench-m dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --run_id 00000 --instance_ids pylint-dev__astroid-1333
+  288  sb-cli submit swe-bench-m dev --instance_ids pydicom__pydicom-1031
+  289  sb-cli submit swe-bench_lite --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/swe-bench-experiments/evaluation/lite/20231010_rag_claude2/all_preds.jsonl --run_id 00001
+  290  sb-cli submit swe-bench_lite --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/swe-bench-experiments/evaluation/lite/20231010_rag_claude2/all_preds.jsonl --run_id 00001 --split test
+  291  sb-cli submit swe-bench_lite test --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/swe-bench-experiments/evaluation/lite/20231010_rag_claude2/all_preds.jsonl --run_id 00001 --split test
+  292  sb-cli submit swe-bench_lite test --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/swe-bench-experiments/evaluation/lite/20231010_rag_claude2/all_preds.jsonl --run_id 00001
+  293  sb-cli submit swe-bench_lite test --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/swe-bench-experiments/evaluation/lite/20231010_rag_claude2/all_preds.jsonl --run_id 00001
+  294  sb-cli list-runs swe-bench-m dev
+  295  sb-cli list-runs swe-bench-lite test
+  296  sb-cli list-runs swe-bench_lite test
+  297  sb-cli get-report swe-bench_lite test 00001
+  298  sb-cli get-quotas
+  299  sb-cli get-quotas
+  300  sb-cli gen-api-key matthewkhoriaty@gmail.com
+  301  export SWEBENCH_API_KEY=swb_p2W2LZ07u49BAOLMyz_U1NHUko8LHa7jcKPMT511RKI_67ac359e
+  302  sb-cli verify-api-key 3057472
+  303  sb-cli get-quotas
+  304  sb-cli submit swe-bench_lite test --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/swe-bench-experiments/evaluation/lite/20231010_rag_claude2/all_preds.jsonl --run_id 00002
+  305  sb-cli get-quotas
+  306  sb-cli get-report swe-bench_lite test 00001
+  307  sb-cli get-report swe-bench_lite test 00002
+  308  docker images
+  309  docker images | grep sweb.env.py
+  310  ssh298
+  311  python -m http.server 8000
+  312  python -m http.server 8000
+  313  mv R/deepseek.html deepseek.html
+  314  open -R deepseek.html 
+  315  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  316  python
+  317  which requests
+  318  conda list | grep reque
+  319  cd src/web/
+  320  export FLASK_APP=app.py && flask run
+  321  python
+  322  /Users/matthew.khoriaty/Desktop/research/coordination_among_ai
+  323  cd /Users/matthew.khoriaty/Desktop/research/coordination_among_ai
+  324  cursor .
+  325  pass
+  326  pass insert sb-cli/key2
+  327  pass insert neuronpedia/mknu
+  328  vim ~/.bash_profile
+  329  which node
+  330  which npx
+  331  npx ts-node
+  332  npx ts-node
+  333  cd ..
+  334  pass
+  335  pass insert openrouter/key1
+  336  python
+  337  conda activate langchain
+  338  python -m swebench.harness.run_evaluation --help
+  339  python -m swebench.harness.run_evaluation --help | grep split
+  340  ls | copy
+  341  cd Desktop/research/
+  342  ls
+  343  cd coordination_among_ai/
+  344  conda activate langchain
+  345  cursor .
+  346  python -m swebench.harness.run_evaluation     --dataset_name princeton-nlp/SWE-bench_Lite     --predictions_path <path_to_predictions>     --max_workers <num_workers>     --run_id <run_id>
+  347      # use --predictions_path 'gold' to verify the gold patches
+  348  python -m swebench.harness.run_evaluation \
+  349  moore
+  350  quest
+  351  conda activate autogen
+  352  autogenstudio ui --port 8080 --appdir ./my-app
+  353  cd Desktop/research/coordination_among_ai/
+  354  ls
+  355  cd autogen-main/
+  356  autogenstudio ui --port 8080 --appdir ./my-app
+  357  pip install -U "autogenstudio"
+  358  pip install -U "autogen-agentchat" "autogen-ext[openai]"
+  359  autogenstudio ui --port 8080 --appdir ./my-app
+  360  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1
+  361  conda activate langchain
+  362  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1
+  363  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1
+  364  docker login
+  365  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1 --force_rebuild True
+  366  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1 --force_rebuild True --cache_level none
+  367  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1 --force_rebuild True --cache_level none --namespace ""
+  368  conda deactivate
+  369  conda env list | grep swe
+  370  conda activate swecli
+  371  ls
+  372  cd SWE-bench/
+  373  ls
+  374  pip install -e .
+  375  conda deactivate
+  376  conda create -n swebench python=3.11 -y
+  377  conda update -n base -c defaults conda
+  378  conda activate swebench
+  379  pip install -e .
+  380  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1
+  381  pip install -e .
+  382  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1
+  383  pip install requests
+  384  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1
+  385  python -m pip install -e .
+  386  python -m swebench.harness.run_evaluation --dataset_name princeton-nlp/SWE-bench --split dev --predictions_path /Users/matthew.khoriaty/Desktop/research/coordination_among_ai/langsmith-swe/model_predictions.json --max_workers 2 --run_id sweb1
+  387  clear
+  388  conda deactivate
+  389  conda activate autogen
+  390  cd ..
+  391  vim VoteTermination.py
+  392  git fetch origin main
+  393  git pull origin main
+  394  python
+  395  git add .
+  396  git commit -m "VoteTermination class"
+  397  git push origin main
+  398  git add .
+  399  git commit -m "msg is a dict"
+  400  git push origin main
+  401  git add .
+  402  git commit -am "Fix the termination"
+  403  git push origin main
+  404  python
+  405  pip install datasets
+  406  python
+  407  python -m pip install datasets
+  408  python
+  409  python
+  410  cd trial1/
+  411  python
+  412  pip install autogen-agentchat~=0.2
+  413  python -m pip install autogen-agentchat~=0.2
+  414  python
+  415  git fetch origin main
+  416  git pull origin main
+  417  python GroupChatEvaluator.py 
+  418  python GroupChatEvaluator.py 
+  419  python
+  420  git add .
+  421  git commit -m "GroupChatEvaluator start"
+  422  git push origin main
+  423  python
+  424  git fetch origin main
+  425  git pull origin main
+  426  python GroupChatEvaluator.py 
+  427  python GroupChatEvaluator.py 
+  428  python GroupChatEvaluator.py 
+  429  python
+  430  python GroupChatEvaluator.py 
+  431  python
+  432  python GroupChatEvaluator.py 
+  433  python
+  434  python GroupChatEvaluator.py 
+  435  python GroupChatEvaluator.py 
+  436  python
+  437  git add .
+  438  git commit -am "Continue VoteMentionTermination logic"
+  439  git push origin main
+  440  python
+  441  python VoteMentionTermination.py 
+  442  git add .
+  443  git commit -m "VoteMentionTermination passes test"
+  444  git push origin main
+  445  python GroupChatEvaluator.py 
+  446  python GroupChatEvaluator.py 
+  447  python GroupChatEvaluator.py 
+  448  python GroupChatEvaluator.py 
+  449  python GroupChatEvaluator.py 
+  450  python GroupChatEvaluator.py 
+  451  python GroupChatEvaluator.py 
+  452  python GroupChatEvaluator.py 
+  453  clear
+  454  python GroupChatEvaluator.py 
+  455  git add .
+  456  git commit -m "Simple print-based evaluation works"
+  457  git push origin main
+  458  python
+  459  python GroupChatEvaluator.py 
+  460  python
+  461  python GroupChatEvaluator.py 
+  462  python GroupChatEvaluator.py 
+  463  git add .
+  464  git commit -am "First evaluation: gpt4o gets ~95%"
+  465  git push origin main
+  466  python GroupChatEvaluator.py 
+  467  python GroupChatEvaluator.py 
+  468  python GroupChatEvaluator.py 
+  469  python GroupChatEvaluator.py 
+  470  python GroupChatEvaluator.py gpt-4o-mini-2024-07-18 .5
+  471  python GroupChatEvaluator.py gpt-4o-mini-2024-07-18 .5
+  472  git commit -m "Evaluated gpt4omini, about to evaluate 2v1"
+  473  git add .
+  474  git commit -m "Evaluated gpt4omini, about to evaluate 2v1"
+  475  python 2v1Evaluation.py gpt-4o-mini-2024-07-18 .5
+  476  python
+  477  python 2v1Evaluation.py gpt-4o-mini-2024-07-18 .5
+  478  python 2v1Evaluation.py gpt-4o-mini-2024-07-18 .5
+  479  python 2v1Evaluation.py gpt-4o-mini-2024-07-18 .5 1 3
+  480  git add .
+  481  git commit -am "Idk, setting up any-number agent evals"
+  482  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  483  python -m swebench.harness.run_evaluation --help
+  484  python -m swebench.harness.run_evaluation --help
+  485  conda deactivate; conda activate swebench
+  486  python -m swebench.harness.run_evaluation --help
+  487  cd SWE-bench/
+  488  clear
+  489  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  490  ssh298
+  491  pass
+  492  pass openrouter/key1
+  493  ssh298
+  494  python
+  495  cd /Users/matthew.khoriaty/Desktop/GPRL/PaperKeyWords/src/web/tangentially_related
+  496  python sqs_test.py https://sqs.us-east-2.amazonaws.com/590183842170/paperkingqueue
+  497  python sqs_test.py https://sqs.us-east-2.amazonaws.com/590183842170/paperkingqueue
+  498  python sqs_test.py https://sqs.us-east-2.amazonaws.com/590183842170/paperkingqueue
+  499  python sqs_test.py https://sqs.us-east-2.amazonaws.com/590183842170/paperkingqueue
+  500  /usr/bin/python3 /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/printEnvVariablesToFile.py /Users/matthew.khoriaty/.cursor/extensions/ms-python.python-2024.12.3-darwin-arm64/python_files/deactivate/bash/envVars.txt
+  501  git clone git@github.com:princeton-nlp/SWE-bench.git
+  502  git clone https://github.com/swe-bench/SWE-bench.git
+  503  cd SWE-bench/
+  504  pip install -e .
+  505  python -m swebench.harness.run_evaluation     --predictions_path gold     --max_workers 1     --instance_ids sympy__sympy-20590     --run_id validate-gold
+  506  python -m swebench.harness.run_evaluation     --predictions_path gold     --max_workers 1     --instance_ids sympy__sympy-20590     --run_id validate-gold
+  507  python -m swebench.harness.run_evaluation --predictions_path gold --max_workers 1 --instance_ids sympy__sympy-20590 --run_id validate-gold
+  508  conda deactivate
+  509  uv venv
+  510  source .venv/bin/activate
+  511  deactivate
+  512  rm -rf .venv
+  513  cd ..
+  514  uv venv
+  515  source .venv/bin/activate
+  516  uv pip install -e ./SWE-bench/
+  517  python -m swebench.harness.run_evaluation     --predictions_path gold     --max_workers 1     --instance_ids sympy__sympy-20590     --run_id validate-gold
+  518  docker login
+  519  python -m swebench.harness.run_evaluation     --predictions_path gold     --max_workers 1     --instance_ids sympy__sympy-20590     --run_id validate-gold
+  520  python -m swebench.harness.build_images --instance_ids sympy__sympy-20590
+  521  cd SWE-bench/
+  522  python -m swebench.harness.build_images --instance_ids sympy__sympy-20590
+  523  python3 -m swebench.harness.run_evaluation
+  524  --dataset_name /data/linziming/SWE-bench_Verified
+  525  --predictions_path gold
+  526  --max_workers 1
+  527  --instance_ids sympy__sympy-20590
+  528  --run_id validate-gold
+  529  python3 -m swebench.harness.run_evaluation  --dataset_name /data/linziming/SWE-bench_Verified  --predictions_path gold  --max_workers 1 --instance_ids sympy__sympy-20590 --run_id validate-gold --namespace ''
+  530  python3 -m swebench.harness.run_evaluation  --dataset_name princeton-nlp/SWE-bench_Verified  --predictions_path gold  --max_workers 1 --instance_ids sympy__sympy-20590 --run_id validate-gold --namespace ''
+  531  ls
+  532  cat gold.validate-gold.json 
+  533  ls
+  534  cd ..
+  535  python3 -m swebench.harness.run_evaluation  --dataset_name princeton-nlp/SWE-bench --split dev  --predictions_path gold  --max_workers 1 --instance_ids sqlfluff__sqlfluff-4764 --run_id validate-gold_SWE-bench-dev --namespace ''
+  536  python3 -m swebench.harness.run_evaluation  --dataset_name princeton-nlp/SWE-bench_Verified  --predictions_path gold  --max_workers 1 --instance_ids astropy__astropy-12907 --run_id validate-gold --namespace ''
+  537  python3 -m swebench.harness.run_evaluation  --dataset_name princeton-nlp/SWE-bench_Lite --split  --predictions_path gold  --max_workers 1 --instance_ids sqlfluff__sqlfluff-1625 --run_id validate-gold --namespace ''
+  538  python3 -m swebench.harness.run_evaluation  --dataset_name princeton-nlp/SWE-bench_Lite --split dev --predictions_path gold  --max_workers 1 --instance_ids sqlfluff__sqlfluff-1625 --run_id validate-gold-lite --namespace ''
+  539  python -m swebench.harness.run_evaluation \    --dataset_name princeton-nlp/SWE-bench_Lite \    --max_workers 1 \    --predictions_path 'gold' \    --run_id lite2
+  540  python -m swebench.harness.run_evaluation     --dataset_name princeton-nlp/SWE-bench_Lite     --max_workers 1     --predictions_path 'gold'     --run_id lite2
+  541  python -m swebench.harness.run_evaluation     --dataset_name princeton-nlp/SWE-bench_Lite     --max_workers 1     --predictions_path 'gold'     --run_id lite2 --instance_ids 
+  542  python -m swebench.harness.run_evaluation     --dataset_name princeton-nlp/SWE-bench_Lite     --max_workers 1     --predictions_path 'gold'     --run_id lite2 --instance_ids astropy__astropy-12907
+  543  python -m swebench.harness.run_evaluation     --dataset_name princeton-nlp/SWE-bench_Lite     --max_workers 1     --predictions_path 'gold'     --run_id lite2 --instance_ids astropy__astropy-12907 --namespace ""
+  544  echo "that worked, resolved"
+  545  history
+  546  history > 2025-02-22history.txt
