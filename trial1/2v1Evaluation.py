@@ -13,9 +13,48 @@ import argparse
 import json
 from datetime import datetime
 
-
-def collaborators_vs_saboteurs(model, rate_limit, collaborators, saboteurs, turns=3):
+def make_groupchat_factory_and_run(participants, rate_limit, turns):
     chat_evaluator = GroupChatEvaluator()
+    def groupchat_factory():
+        # Use the randomized participants list for the group chat.
+        return RoundRobinGroupChat(
+            participants=participants,
+            max_turns=turns,
+            termination_condition=VoteMentionTermination(num_voters=len(participants)),
+        )
+
+    result = asyncio.run(
+        chat_evaluator.evaluate_parallel(
+            groupchat_factory,
+            format_taskA,
+            num_agents=len(participants),
+            rate_limit_sleep=rate_limit,
+        )
+    )
+    return result
+
+def participants_from_pairs(model_role_pairs:list):
+    model_clients = {}
+    for model, _ in model_role_pairs:
+        if model not in model_clients:
+            model_clients[model] = OpenAIChatCompletionClient(
+                model=model,
+                # api_key="YOUR_API_KEY",
+            )
+    
+    participants = []
+    for i, (model, agent_type) in enumerate(model_role_pairs):
+        participants.append(
+            AssistantAgent(
+                name=f"Collaborator_{i}",
+                model_client=model_clients[model],
+                system_message=type_to_system_message[agent_type],
+            )
+        )
+
+    return participants
+
+def participants_from_numbers(model, collaborators:int, saboteurs:int):
     model_client = OpenAIChatCompletionClient(
         model=model,
         # api_key="YOUR_API_KEY",
@@ -33,23 +72,7 @@ def collaborators_vs_saboteurs(model, rate_limit, collaborators, saboteurs, turn
             )
         )
 
-    def groupchat_factory():
-        # Use the randomized participants list for the group chat.
-        return RoundRobinGroupChat(
-            participants=participants,
-            max_turns=3,
-            termination_condition=VoteMentionTermination(num_voters=len(participants)),
-        )
-
-    result = asyncio.run(
-        chat_evaluator.evaluate_parallel(
-            groupchat_factory,
-            format_taskA,
-            num_agents=len(participants),
-            rate_limit_sleep=rate_limit,
-        )
-    )
-    return result
+    return participants
 
 
 if __name__ == "__main__":
@@ -80,7 +103,8 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    result = collaborators_vs_saboteurs(**vars(args))
+    participants = participants_from_numbers(args.model, collaborators=args.collaborators, saboteurs=args.saboteurs)
+    result = make_groupchat_factory_and_run(participants=participants, rate_limit=args.rate_limit, turns=args.turns)
     result = dict(arguments=vars(args), evaluation=result)
     # Create a filename with timestamp and command line args for saving the results
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
