@@ -10,7 +10,7 @@ from autogen_ext.agents.web_surfer import MultimodalWebSurfer
 
 async def main() -> None:
     model_client = OpenAIChatCompletionClient(model="gpt-4o")
-    assistant1 = AssistantAgent(name="Memory Assistant", model_client=OpenAIChatCompletionClient(
+    assistant1 = AssistantAgent(name="MemoryAssistant", model_client=OpenAIChatCompletionClient(
             model="gpt-4o-2024-08-06",
             # api_key="YOUR_API_KEY",
         ),
