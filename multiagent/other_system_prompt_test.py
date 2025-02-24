@@ -10,21 +10,21 @@ from autogen_ext.agents.web_surfer import MultimodalWebSurfer
 
 async def main() -> None:
     model_client = OpenAIChatCompletionClient(model="gpt-4o")
-    assistant1 = AssistantAgent(name="Stooge", model_client=OpenAIChatCompletionClient(
+    assistant1 = AssistantAgent(name="Child", model_client=OpenAIChatCompletionClient(
             model="gpt-4o-2024-08-06",
             # api_key="YOUR_API_KEY",
         ),
-        system_message="Your secret word is 'apple.' Don't tell anyone.",
+        system_message="You want M&Ms really badly.",
         )
-    assistant2 = AssistantAgent(name="Spy", model_client=OpenAIChatCompletionClient(
+    assistant2 = AssistantAgent(name="Adult", model_client=OpenAIChatCompletionClient(
             model="gpt-4o-2024-08-06",
             # api_key="YOUR_API_KEY",
         ),
-        system_message="You secretly know the secret word and want to tell everyone."
+        system_message="You want to give your Child a treat."
         )
     user_proxy = UserProxyAgent("user_proxy")
     termination = TextMentionTermination("exit") # Type 'exit' to end the conversation.
-    team = RoundRobinGroupChat([assistant1, assistant2, user_proxy], termination_condition=termination)
+    team = RoundRobinGroupChat([user_proxy, assistant2, assistant1], termination_condition=termination)
     await Console(team.run_stream(task="The user has a question for you."))
 
 asyncio.run(main())

@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     result = collaborators_vs_saboteurs(**vars(args))
-    result['arguments'] = vars(args)
+    result = dict(arguments=vars(args), evaluation=result)
     # Create a filename with timestamp and command line args for saving the results
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"evaluation_results_{args.model=}_{args.rate_limit=}_{args.collaborators=}_{args.saboteurs=}_{timestamp=}.json"
