@@ -97,7 +97,7 @@ class GroupChatEvaluator():
                 
                 # Process the question using a fresh group chat instance.
                 groupchat = groupchat_factory()
-                import pdb;pdb.set_trace()
+                # import pdb;pdb.set_trace()
                 question = row['question']
                 choices = row['choices']
                 answer = row['answerKey']
