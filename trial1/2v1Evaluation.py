@@ -12,6 +12,7 @@ from GroupChatEvaluator import GroupChatEvaluator
 import argparse
 import json
 from datetime import datetime
+import os
 
 
 def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns):
@@ -98,45 +99,76 @@ def participants_from_numbers(model, collaborators:int, saboteurs:int):
 if __name__ == "__main__":
     # Set up argument parser
     parser = argparse.ArgumentParser(
-        description="""Run group chat evaluation with collaborators and saboteurs.
+        description="""Run group chat evaluation with collaborators and saboteurs using a JSON config file.
         Example:
-            python 2v1Evaluation.py --model "gpt-4o-mini-2024-07-18" --rate_limit=1 --collaborators 2 --saboteurs 1 --turns 3
+            python 2v1Evaluation.py --config config.json
         """
     )
+    
     parser.add_argument(
-        "--model",
+        "--config",
         type=str,
         required=True,
-        help='Model name (e.g., "gpt-4o-2024-08-06")',
-    )
-    parser.add_argument(
-        "--rate_limit",
-        type=float,
-        required=True,
-        help="Rate limit sleep duration between API calls",
-    )
-    parser.add_argument(
-        "--collaborators", type=int, required=True, help="Number of collaborator agents"
-    )
-    parser.add_argument(
-        "--saboteurs", type=int, required=True, help="Number of saboteur agents"
-    )
-    parser.add_argument(
-        "--turns", type=int, default=3, help="Maximum number of turns in the conversation"
-    )
-    parser.add_argument(
-        "--output_dir", type=str, default="./2v1Evaluation_results"
+        help="Path to JSON configuration file",
     )
 
     args = parser.parse_args()
-    participants_factory = lambda : participants_from_numbers(args.model, collaborators=args.collaborators, saboteurs=args.saboteurs)
-    num_participants = participants_from_numbers(args.model, collaborators=args.collaborators, saboteurs=args.saboteurs)
-    result = make_groupchat_factory_and_run(participants_factory=participants_factory, num_participants=num_participants, rate_limit=args.rate_limit, turns=args.turns)
-    result = dict(arguments=vars(args), evaluation=result)
-    # Create a filename with timestamp and command line args for saving the results
+    
+    # Load configuration from JSON file
+    with open(args.config, 'r') as f:
+        config = json.load(f)
+    
+    # Extract common parameters
+    rate_limit = config.get("rate_limit")
+    turns = config.get("turns", 3)
+    output_dir = config.get("output_dir", "./2v1Evaluation_results")
+    
+    # Determine which method was used to specify participants
+    if "model_role_pairs" in config:
+        # Use the model-role pairs directly
+        model_role_pairs = config["model_role_pairs"]
+        participants_factory = lambda: participants_from_pairs(model_role_pairs)
+        num_participants = count_participants_from_pairs(model_role_pairs)
+    elif all(k in config for k in ["model", "collaborators", "saboteurs"]):
+        # Use the model and counts to generate pairs
+        model = config["model"]
+        collaborators = config["collaborators"]
+        saboteurs = config["saboteurs"]
+        model_role_pairs = numbers_to_pairs(model, collaborators, saboteurs)
+        participants_factory = lambda: participants_from_pairs(model_role_pairs)
+        num_participants = count_participants_from_pairs(model_role_pairs)
+    else:
+        raise ValueError("Config must contain either 'model_role_pairs' or all of 'model', 'collaborators', and 'saboteurs'")
+    
+    result = make_groupchat_factory_and_run(
+        participants_factory=participants_factory, 
+        num_participants=num_participants, 
+        rate_limit=rate_limit, 
+        turns=turns
+    )
+    
+    # Include the configuration and actual model-role pairs used in the result
+    result = dict(
+        config=config,
+        model_role_pairs=model_role_pairs,
+        evaluation=result
+    )
+    
+    # Create a filename with timestamp for saving the results
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    filename = f"evaluation_results_{args.model=}_{args.rate_limit=}_{args.collaborators=}_{args.saboteurs=}_{timestamp=}.json"
+    
+    # Create a descriptive filename
+    if "model_role_pairs" in config:
+        filename = f"evaluation_custom_pairs_{timestamp}.json"
+    else:
+        model = config["model"]
+        collaborators = config["collaborators"]
+        saboteurs = config["saboteurs"]
+        filename = f"evaluation_{model}_{collaborators}c_{saboteurs}s_{timestamp}.json"
+    
+    # Ensure output directory exists
+    os.makedirs(output_dir, exist_ok=True)
     
     # Save results to a JSON file
-    with open(args.output_dir + "/" + filename, "w") as f:
+    with open(os.path.join(output_dir, filename), "w") as f:
         json.dump(result, f, indent=4)
