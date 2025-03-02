@@ -1,0 +1,8 @@
+{
+  "model": "gpt-4o-mini-2024-07-18",
+  "collaborators": 2,
+  "saboteurs": 1,
+  "rate_limit": 1.0,
+  "turns": 3,
+  "output_dir": "./results/model_counts"
+}

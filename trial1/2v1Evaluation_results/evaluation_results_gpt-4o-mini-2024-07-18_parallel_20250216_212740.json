@@ -1,0 +1,11 @@
+{
+    "accuracy": 1.0,
+    "given_answers": [
+        "C",
+        "D"
+    ],
+    "question_grades": [
+        true,
+        true
+    ]
+}

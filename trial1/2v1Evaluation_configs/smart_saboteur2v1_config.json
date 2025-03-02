@@ -1,0 +1,10 @@
+{
+  "model_role_pairs": [
+    ["gpt-4o-mini-2024-07-18", "collaborator"],
+    ["gpt-4o-2024-08-06", "saboteur"],
+    ["gpt-4o-mini-2024-07-18", "collaborator"]
+  ],
+  "rate_limit": 1.0,
+  "turns": 3,
+  "output_dir": "./results/custom_pairs"
+}
