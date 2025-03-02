@@ -13,10 +13,12 @@ import argparse
 import json
 from datetime import datetime
 
-def make_groupchat_factory_and_run(participants, rate_limit, turns):
+
+def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns):
     chat_evaluator = GroupChatEvaluator()
     def groupchat_factory():
         # Use the randomized participants list for the group chat.
+        participants = participants_factory()
         return RoundRobinGroupChat(
             participants=participants,
             max_turns=turns,
@@ -27,11 +29,14 @@ def make_groupchat_factory_and_run(participants, rate_limit, turns):
         chat_evaluator.evaluate_parallel(
             groupchat_factory,
             format_taskA,
-            num_agents=len(participants),
+            num_agents=num_participants,
             rate_limit_sleep=rate_limit,
         )
     )
     return result
+
+def count_participants_from_pairs(model_role_pairs:list):
+    return len(model_role_pairs)
 
 def participants_from_pairs(model_role_pairs:list):
     model_clients = {}
@@ -54,6 +59,8 @@ def participants_from_pairs(model_role_pairs:list):
 
     return participants
 
+def count_participants_from_numbers(collaborators:int, saboteurs:int):
+    return collaborators + saboteurs
 def participants_from_numbers(model, collaborators:int, saboteurs:int):
     model_client = OpenAIChatCompletionClient(
         model=model,
@@ -78,7 +85,10 @@ def participants_from_numbers(model, collaborators:int, saboteurs:int):
 if __name__ == "__main__":
     # Set up argument parser
     parser = argparse.ArgumentParser(
-        description="Run group chat evaluation with collaborators and saboteurs"
+        description="""Run group chat evaluation with collaborators and saboteurs.
+        Example:
+            python 2v1Evaluation.py --model "gpt-4o-mini-2024-07-18" --rate_limit=1 --collaborators 2 --saboteurs 1 --turns 3
+        """
     )
     parser.add_argument(
         "--model",
@@ -103,8 +113,9 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    participants = participants_from_numbers(args.model, collaborators=args.collaborators, saboteurs=args.saboteurs)
-    result = make_groupchat_factory_and_run(participants=participants, rate_limit=args.rate_limit, turns=args.turns)
+    participants_factory = lambda : participants_from_numbers(args.model, collaborators=args.collaborators, saboteurs=args.saboteurs)
+    num_participants = participants_from_numbers(args.model, collaborators=args.collaborators, saboteurs=args.saboteurs)
+    result = make_groupchat_factory_and_run(participants_factory=participants_factory, num_participants=num_participants, rate_limit=args.rate_limit, turns=args.turns)
     result = dict(arguments=vars(args), evaluation=result)
     # Create a filename with timestamp and command line args for saving the results
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
