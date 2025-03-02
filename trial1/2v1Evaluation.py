@@ -39,6 +39,7 @@ def count_participants_from_pairs(model_role_pairs:list):
     return len(model_role_pairs)
 
 def participants_from_pairs(model_role_pairs:list):
+    random.shuffle(model_role_pairs)
     model_clients = {}
     for model, _ in model_role_pairs:
         if model not in model_clients:
@@ -59,9 +60,21 @@ def participants_from_pairs(model_role_pairs:list):
 
     return participants
 
+def numbers_to_pairs(model:str, collaborators:int, saboteurs:int):
+    colab_or_saboteur = ["collaborator"] * collaborators + ["saboteur"] * saboteurs
+    random.shuffle(colab_or_saboteur)
+    result = []
+    for i, agent_type in enumerate(colab_or_saboteur):
+        result.append(
+            (model, agent_type)
+        )
+    return result
+
 def count_participants_from_numbers(collaborators:int, saboteurs:int):
     return collaborators + saboteurs
+
 def participants_from_numbers(model, collaborators:int, saboteurs:int):
+    assert False, "I swapped this to numbers_to_pairs and participants_from_pairs"
     model_client = OpenAIChatCompletionClient(
         model=model,
         # api_key="YOUR_API_KEY",
@@ -111,6 +124,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--turns", type=int, default=3, help="Maximum number of turns in the conversation"
     )
+    parser.add_argument(
+        "--output_dir", type=str, default="./2v1Evaluation_results"
+    )
 
     args = parser.parse_args()
     participants_factory = lambda : participants_from_numbers(args.model, collaborators=args.collaborators, saboteurs=args.saboteurs)
@@ -118,9 +134,9 @@ if __name__ == "__main__":
     result = make_groupchat_factory_and_run(participants_factory=participants_factory, num_participants=num_participants, rate_limit=args.rate_limit, turns=args.turns)
     result = dict(arguments=vars(args), evaluation=result)
     # Create a filename with timestamp and command line args for saving the results
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     filename = f"evaluation_results_{args.model=}_{args.rate_limit=}_{args.collaborators=}_{args.saboteurs=}_{timestamp=}.json"
-
+    
     # Save results to a JSON file
-    with open(filename, "w") as f:
+    with open(args.output_dir + "/" + filename, "w") as f:
         json.dump(result, f, indent=4)
