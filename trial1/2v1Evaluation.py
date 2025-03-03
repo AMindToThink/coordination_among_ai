@@ -15,15 +15,28 @@ from datetime import datetime
 import os
 
 
-def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, log_file=None):
+def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, end_condition="quorum", log_file=None):
     chat_evaluator = GroupChatEvaluator()
     def groupchat_factory():
         # Use the randomized participants list for the group chat.
         participants = participants_factory()
+        
+        # Configure termination based on end condition
+        if end_condition == "quorum":
+            termination = VoteMentionTermination(
+                num_voters=len(participants),
+                quorum_fraction=0.5
+            )
+        else:  # turns
+            termination = VoteMentionTermination(
+                num_voters=len(participants),
+                num_turns=turns
+            )
+            
         return RoundRobinGroupChat(
             participants=participants,
             max_turns=turns,
-            termination_condition=VoteMentionTermination(num_voters=len(participants)),
+            termination_condition=termination,
         )
 
     result = asyncio.run(
@@ -131,9 +144,10 @@ if __name__ == "__main__":
     # Extract common parameters
     rate_limit = config.get("rate_limit")
     turns = config.get("turns", 3)
+    end_condition = config.get("end_condition", "quorum")
     output_dir = config.get("output_dir", "./2v1Evaluation_results")
     log_file = config.get("log_file", None)
-    log_file = log_file.format(filename=filename)
+    log_file = log_file.format(filename=filename) if log_file else None
     # Create timestamp for filenames
     
     
@@ -170,6 +184,7 @@ if __name__ == "__main__":
         num_participants=num_participants, 
         rate_limit=rate_limit, 
         turns=turns,
+        end_condition=end_condition,
         log_file=log_file
     )
     
@@ -182,8 +197,6 @@ if __name__ == "__main__":
     
     # Create a filename with timestamp for saving the results
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    
-    
     
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)

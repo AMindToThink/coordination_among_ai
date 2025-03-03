@@ -6,5 +6,5 @@
   "turns": 3,
   "output_dir": "./results/model_counts",
   "log_file": "{filename}_chat_logs.txt",
-  "end_condition": "quorum"
+  "end_condition": "turns"
 }
