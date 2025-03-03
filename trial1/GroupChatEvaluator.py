@@ -1,9 +1,10 @@
+import json
 import asyncio
-from typing import Callable, Sequence
+from typing import Callable
 from datasets import load_dataset
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_agentchat.teams import BaseGroupChat, RoundRobinGroupChat
-from autogen_agentchat.agents import AssistantAgent, ChatAgent
+from autogen_agentchat.agents import AssistantAgent
 import prompting
 from VoteMentionTermination import VoteMentionTermination
 from tqdm import tqdm
@@ -68,7 +69,13 @@ class GroupChatEvaluator():
                 answer = row['answerKey']
                 task = task_formatter(question=question, choices=choices, num_agents=num_agents)
                 
-                # Log the question and task if logging is enabled
+                    
+                
+                chat_result = await groupchat.run(task=task)
+                # Add async-compatible breakpoint for debugging
+                # import pdb; pdb.set_trace()
+                # Log the conversation if logging is enabled
+                chosen_answer = json.loads(chat_result.stop_reason)['answer'] if chat_result.stop_reason else None
                 if log_file_handle:
                     log_file_handle.write(f"Question ID: {row.get('id', 'unknown')}\n")
                     log_file_handle.write(f"Question: {question}\n")
@@ -76,26 +83,15 @@ class GroupChatEvaluator():
                     log_file_handle.write(f"Correct Answer: {answer}\n")
                     log_file_handle.write(f"Task: {task}\n\n")
                     log_file_handle.write("=== Conversation ===\n")
-                
-                chat_result = await groupchat.run(task=task)
-                # Add async-compatible breakpoint for debugging
-                # import pdb; pdb.set_trace()
-                # Log the conversation if logging is enabled
-                if log_file_handle:
-                    for msg in chat_result.messages:
-                        if hasattr(msg, 'name') and hasattr(msg, 'content'):
-                            log_file_handle.write(f"{msg.name}: {msg.content}\n")
-                        elif hasattr(msg, 'content'):
-                            log_file_handle.write(f"System: {msg.content}\n")
+                    log_file_handle.write(str(chat_result))
                     log_file_handle.write("\n")
-                    
-                    chosen_answer = chat_result.stop_reason[0] if chat_result.stop_reason else None
                     log_file_handle.write(f"Selected Answer: {chosen_answer}\n")
                     log_file_handle.write(f"Correct: {chosen_answer == answer}\n")
+                    log_file_handle.write("\n")
                     log_file_handle.write("\n" + "="*50 + "\n\n")
+                    log_file_handle.write("\n")
                 
                 await groupchat.reset()
-                chosen_answer = chat_result.stop_reason[0] if chat_result.stop_reason else None
                 if verbose:
                     print(prompting.format_question(question, choices))
                     print(chat_result)
@@ -103,9 +99,7 @@ class GroupChatEvaluator():
         
         # Create tasks up to the specified limit.
         tasks = []
-        actual_limit = limit if limit != float("inf") else (
-            len(self.ds) if hasattr(self.ds, '__len__') else float('inf')
-        )
+        actual_limit = limit if limit != float("inf") else len(self.ds)
         for i, row in enumerate(self.ds):
             if i >= actual_limit:
                 break
@@ -152,17 +146,13 @@ if __name__ == '__main__':
         system_message="You are the logical rules-based guy."
         )
     participants = [assistant1, assistant2]
-    def groupchat_factory() -> RoundRobinGroupChat:
+    def groupchat_factory():
         return RoundRobinGroupChat(
-            participants=participants,  # type: Sequence[ChatAgent]
+            participants=participants,
             max_turns=3,
             termination_condition=VoteMentionTermination(num_voters=len(participants))
         )
-    chat = RoundRobinGroupChat(
-        participants=participants,  # type: Sequence[ChatAgent]
-        max_turns=3, 
-        termination_condition=VoteMentionTermination(num_voters=len(participants))
-    )
+    chat = RoundRobinGroupChat(participants=participants, max_turns=3, termination_condition=VoteMentionTermination(num_voters=len(participants)))
     import json
     from datetime import datetime
     # import pdb;pdb.set_trace()

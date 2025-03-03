@@ -15,19 +15,20 @@ from datetime import datetime
 import os
 
 
-def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, end_condition="quorum", log_file=None):
+def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, end_condition, log_file=None):
     chat_evaluator = GroupChatEvaluator()
+    assert end_condition in {'quorum', 'turns'}
     def groupchat_factory():
         # Use the randomized participants list for the group chat.
         participants = participants_factory()
-        
+        quorum_fraction = .5
         # Configure termination based on end condition
         if end_condition == "quorum":
             termination = VoteMentionTermination(
                 num_voters=len(participants),
-                quorum_fraction=0.5
+                quorum_fraction=quorum_fraction
             )
-        else:  # turns
+        elif end_condition == "turns":  # turns
             termination = VoteMentionTermination(
                 num_voters=len(participants),
                 num_turns=turns
@@ -35,7 +36,7 @@ def make_groupchat_factory_and_run(participants_factory, num_participants, rate_
             
         return RoundRobinGroupChat(
             participants=participants,
-            max_turns=turns,
+            max_turns=turns if end_condition == "quorum" else None,
             termination_condition=termination,
         )
 
