@@ -4,5 +4,6 @@
   "saboteurs": 1,
   "rate_limit": 1.0,
   "turns": 3,
-  "output_dir": "./results/model_counts"
+  "output_dir": "./results/model_counts",
+  "log_file": "{filename}_chat_logs.txt"
 }
