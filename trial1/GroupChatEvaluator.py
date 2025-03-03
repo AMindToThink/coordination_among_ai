@@ -1,9 +1,9 @@
 import asyncio
-from typing import Callable
+from typing import Callable, Sequence
 from datasets import load_dataset
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_agentchat.teams import BaseGroupChat, RoundRobinGroupChat
-from autogen_agentchat.agents import AssistantAgent
+from autogen_agentchat.agents import AssistantAgent, ChatAgent
 import prompting
 from VoteMentionTermination import VoteMentionTermination
 from tqdm import tqdm
@@ -78,7 +78,8 @@ class GroupChatEvaluator():
                     log_file_handle.write("=== Conversation ===\n")
                 
                 chat_result = await groupchat.run(task=task)
-                
+                # Add async-compatible breakpoint for debugging
+                # import pdb; pdb.set_trace()
                 # Log the conversation if logging is enabled
                 if log_file_handle:
                     for msg in chat_result.messages:
@@ -102,7 +103,9 @@ class GroupChatEvaluator():
         
         # Create tasks up to the specified limit.
         tasks = []
-        actual_limit = limit if limit != float("inf") else len(self.ds)
+        actual_limit = limit if limit != float("inf") else (
+            len(self.ds) if hasattr(self.ds, '__len__') else float('inf')
+        )
         for i, row in enumerate(self.ds):
             if i >= actual_limit:
                 break
@@ -149,13 +152,17 @@ if __name__ == '__main__':
         system_message="You are the logical rules-based guy."
         )
     participants = [assistant1, assistant2]
-    def groupchat_factory():
+    def groupchat_factory() -> RoundRobinGroupChat:
         return RoundRobinGroupChat(
-            participants=participants,
+            participants=participants,  # type: Sequence[ChatAgent]
             max_turns=3,
             termination_condition=VoteMentionTermination(num_voters=len(participants))
         )
-    chat = RoundRobinGroupChat(participants=participants, max_turns=3, termination_condition=VoteMentionTermination(num_voters=len(participants)))
+    chat = RoundRobinGroupChat(
+        participants=participants,  # type: Sequence[ChatAgent]
+        max_turns=3, 
+        termination_condition=VoteMentionTermination(num_voters=len(participants))
+    )
     import json
     from datetime import datetime
     # import pdb;pdb.set_trace()
