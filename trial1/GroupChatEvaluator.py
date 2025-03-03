@@ -11,48 +11,6 @@ from tqdm import tqdm
 class GroupChatEvaluator():
     def __init__(self, load_dataset_kwargs:dict=dict(path="allenai/ai2_arc", name="ARC-Challenge", split='validation')):
         self.ds = load_dataset(**load_dataset_kwargs)
-    
-    async def evaluate(self, groupchat:BaseGroupChat, task_formatter:Callable, num_agents:int, verbose:bool=False, limit:float=float('inf')):
-        """Evaluate a group chat's performance on a dataset of questions.
-
-        Args:
-            groupchat (BaseGroupChat): The group chat to evaluate
-            task_formatter (Callable): Function that formats the question and choices into a task prompt
-            num_agents (int): Number of agents in the group chat
-            verbose (bool, optional): Whether to print detailed output. Defaults to False.
-            limit (float, optional): Maximum number of questions to evaluate. Defaults to infinity.
-
-        Returns:
-            dict: Results dictionary containing:
-                - accuracy: Fraction of questions answered correctly
-                - given_answers: List of answers given by the group chat
-                - question_grades: List of booleans indicating correctness of each answer
-        """
-        if verbose:
-            print(f"{num_agents=}")
-        given_answers_list:list[str|None] = []
-        answers_correct_list:list[bool] = []
-        
-        for i, row in enumerate(tqdm(self.ds)):
-            if i > limit:
-                break
-            # 
-            question = row['question']
-            choices = row['choices']
-            answer = row['answerKey']
-            task = task_formatter(question=question, choices=choices, num_agents=num_agents)
-            chat_result = await groupchat.run(task=task)
-            await groupchat.reset()
-            chosen_answer = chat_result.stop_reason[0] if chat_result.stop_reason else None
-            given_answers_list.append(chosen_answer)
-            answers_correct_list.append(chosen_answer == answer)
-
-            if verbose:
-                print(prompting.format_question(question, choices))
-                print(chat_result)
-            # answers_correct_list.append(voteTerminator.result == answer)
-            # given_answers_list.append(voteTerminator.result)
-        return dict(accuracy=sum(answers_correct_list) / len(answers_correct_list), given_answers=given_answers_list, question_grades=answers_correct_list)
 
     async def evaluate_parallel(
         self,
@@ -62,7 +20,8 @@ class GroupChatEvaluator():
         verbose: bool = False,
         limit: float = float('inf'),
         max_concurrent: int = 10,
-        rate_limit_sleep: float = 0.5  # seconds to wait between successive API calls
+        rate_limit_sleep: float = 0.5,  # seconds to wait between successive API calls
+        log_file: str|None = None  # New parameter for saving logs
     ):
         """
         Evaluate questions in parallel with a progress bar and rate limiting.
@@ -75,6 +34,7 @@ class GroupChatEvaluator():
             limit (float, optional): Maximum number of questions to evaluate. Defaults to infinity.
             max_concurrent (int, optional): Maximum number of concurrent tasks. Defaults to 10.
             rate_limit_sleep (float, optional): Minimum delay between successive API calls.
+            log_file (str, optional): Path to save detailed conversation logs. Defaults to None.
             
         Returns:
             dict: Results dictionary containing accuracy, given_answers, and question_grades.
@@ -84,6 +44,12 @@ class GroupChatEvaluator():
         semaphore = asyncio.Semaphore(max_concurrent)
         rate_limit_lock = asyncio.Lock()
         last_call = {"time": 0.0}  # shared variable to store the time of the last API call
+        
+        # Set up logging if a log file is specified
+        log_file_handle = None
+        if log_file:
+            log_file_handle = open(log_file, 'w', encoding='utf-8')
+            log_file_handle.write("=== Group Chat Evaluation Logs ===\n\n")
 
         async def process_row(row):
             async with semaphore:
@@ -97,12 +63,36 @@ class GroupChatEvaluator():
                 
                 # Process the question using a fresh group chat instance.
                 groupchat = groupchat_factory()
-                # import pdb;pdb.set_trace()
                 question = row['question']
                 choices = row['choices']
                 answer = row['answerKey']
                 task = task_formatter(question=question, choices=choices, num_agents=num_agents)
+                
+                # Log the question and task if logging is enabled
+                if log_file_handle:
+                    log_file_handle.write(f"Question ID: {row.get('id', 'unknown')}\n")
+                    log_file_handle.write(f"Question: {question}\n")
+                    log_file_handle.write(f"Choices: {choices}\n")
+                    log_file_handle.write(f"Correct Answer: {answer}\n")
+                    log_file_handle.write(f"Task: {task}\n\n")
+                    log_file_handle.write("=== Conversation ===\n")
+                
                 chat_result = await groupchat.run(task=task)
+                
+                # Log the conversation if logging is enabled
+                if log_file_handle:
+                    for msg in chat_result.messages:
+                        if hasattr(msg, 'name') and hasattr(msg, 'content'):
+                            log_file_handle.write(f"{msg.name}: {msg.content}\n")
+                        elif hasattr(msg, 'content'):
+                            log_file_handle.write(f"System: {msg.content}\n")
+                    log_file_handle.write("\n")
+                    
+                    chosen_answer = chat_result.stop_reason[0] if chat_result.stop_reason else None
+                    log_file_handle.write(f"Selected Answer: {chosen_answer}\n")
+                    log_file_handle.write(f"Correct: {chosen_answer == answer}\n")
+                    log_file_handle.write("\n" + "="*50 + "\n\n")
+                
                 await groupchat.reset()
                 chosen_answer = chat_result.stop_reason[0] if chat_result.stop_reason else None
                 if verbose:
@@ -121,22 +111,27 @@ class GroupChatEvaluator():
         # Set up a progress bar that updates as each task completes.
         progress_bar = tqdm(total=len(tasks), desc="Evaluating (parallel)")
         
-        results = []
-        for coro in asyncio.as_completed(tasks):
-            result = await coro
-            results.append(result)
-            progress_bar.update(1)
-        progress_bar.close()
-        
-        for chosen_answer, is_correct in results:
-            given_answers_list.append(chosen_answer)
-            answers_correct_list.append(is_correct)
-        
-        return dict(
-            accuracy=sum(answers_correct_list) / len(answers_correct_list) if answers_correct_list else 0,
-            given_answers=given_answers_list,
-            question_grades=answers_correct_list
-        )
+        try:
+            results = []
+            for coro in asyncio.as_completed(tasks):
+                result = await coro
+                results.append(result)
+                progress_bar.update(1)
+            progress_bar.close()
+            
+            for chosen_answer, is_correct in results:
+                given_answers_list.append(chosen_answer)
+                answers_correct_list.append(is_correct)
+            
+            return dict(
+                accuracy=sum(answers_correct_list) / len(answers_correct_list) if answers_correct_list else 0,
+                given_answers=given_answers_list,
+                question_grades=answers_correct_list
+            )
+        finally:
+            # Close the log file if it was opened
+            if log_file_handle:
+                log_file_handle.close()
 
 if __name__ == '__main__':
     chat_evaluator = GroupChatEvaluator()
