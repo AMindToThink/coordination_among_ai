@@ -52,6 +52,7 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
         # Needs reset:
         self._current_turn_number = 0
         self._terminated = False
+        self.vote_dict:dict[str, str|None] = {} # Which source has voted for what?
 
     @property
     def terminated(self) -> bool:
@@ -61,7 +62,6 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
         self._current_turn_number += 1
         if self._terminated:
             raise TerminatedException("Termination condition has already been reached")
-        vote_dict:dict[str, str|None] = {} # Which source has voted for what?
         def quorum_system():
             raise NotImplementedError("OOps, I had been assuming that messages was multiple things because it is a sequence so yeah, what the heck? But apparently it is just the most recent. We are focusing on the turn system, so this is unimplemented for now.")
             for message in messages:
@@ -141,6 +141,7 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
     async def reset(self) -> None:
         self._terminated = False
         self._current_turn_number = 0
+        self.vote_dict = {}
 
     def _to_config(self) -> VoteMentionTerminationConfig:
         return VoteMentionTerminationConfig(
