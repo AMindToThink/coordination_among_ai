@@ -128,10 +128,10 @@ if __name__ == "__main__":
         help="Path to JSON configuration file",
     )
     parser.add_argument(
-        "--pick_n",
+        "--limit",
         type=int,
         default=-1,
-        help="Only do the first n questions. Defaults to -1 which means all questions."
+        help="Only do the first limit questions. Defaults to -1 which means all questions."
     )
     args = parser.parse_args()
     
@@ -193,7 +193,7 @@ if __name__ == "__main__":
         turns=turns,
         end_condition=end_condition,
         log_file=log_file,
-        limit=float('inf') if args.pick_n == -1 else args.pick_n,
+        limit=float('inf') if args.limit == -1 else args.limit,
     )
     
     # Include the configuration and actual model-role pairs used in the result

@@ -115,10 +115,10 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
                     continue
                 answer = message.content[answer_pos]
                 assert isinstance(message.source, str), f"What the heck is an {type(message.source)}"
-                vote_dict[message.source] = answer
+                self.vote_dict[message.source] = answer
             
             votes = {}
-            for _, answer in vote_dict.items():
+            for _, answer in self.vote_dict.items():
                 votes[answer] = votes.get(answer, 0) + 1
 
             if num_ai_messages != expected_messages:
