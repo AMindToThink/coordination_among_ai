@@ -1,10 +1,12 @@
 import asyncio
+import warnings
 import random
 from typing import Callable
 from datasets import load_dataset
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_agentchat.teams import BaseGroupChat, RoundRobinGroupChat
 from autogen_agentchat.agents import AssistantAgent
+from autogen_core.models import ModelFamily
 from prompting import type_to_system_message, format_taskA
 from VoteMentionTermination import VoteMentionTermination
 from tqdm import tqdm
@@ -14,6 +16,7 @@ import json
 from datetime import datetime
 import os
 
+r1_models = {"deepseek/deepseek-r1"} # so that we can use the slightly more complicated OpenAIChatCompletionClient
 
 def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, end_condition, log_file=None, limit=float('inf')):
     chat_evaluator = GroupChatEvaluator()
@@ -55,14 +58,30 @@ def make_groupchat_factory_and_run(participants_factory, num_participants, rate_
 def count_participants_from_pairs(model_role_pairs:list):
     return len(model_role_pairs)
 
-def participants_from_pairs(model_role_pairs:list):
+def participants_from_pairs(model_role_pairs:list, max_tokens=1000):
     random.shuffle(model_role_pairs)
     model_clients = {}
     for model, _ in model_role_pairs:
         if model not in model_clients:
+            if model not in r1_models:
+                model_clients[model] = OpenAIChatCompletionClient(
+                    model=model,
+                    # api_key="YOUR_API_KEY",
+                )
+                continue
+
             model_clients[model] = OpenAIChatCompletionClient(
                 model=model,
-                # api_key="YOUR_API_KEY",
+                base_url="https://openrouter.ai/api/v1",
+                api_key=os.environ['OPENROUTER_API_KEY'],
+                max_tokens=max_tokens,
+                max_retries=2,
+                model_info={
+                    "vision": False,
+                    "function_calling": False,
+                    "json_output": False,
+                    "family": ModelFamily.R1,
+                },
             )
     
     participants = []
@@ -154,6 +173,7 @@ if __name__ == "__main__":
     end_condition = config.get("end_condition", "quorum")
     output_dir = config.get("output_dir", "./2v1Evaluation_results")
     log_file = config.get("log_file", None)
+    
     log_file = log_file.format(filename=filename) if log_file else None
     # Create timestamp for filenames
     
@@ -173,7 +193,7 @@ if __name__ == "__main__":
     if "model_role_pairs" in config:
         # Use the model-role pairs directly
         model_role_pairs = config["model_role_pairs"]
-        participants_factory = lambda: participants_from_pairs(model_role_pairs)
+        participants_factory = lambda: participants_from_pairs(model_role_pairs, max_tokens=max_tokens)
         num_participants = count_participants_from_pairs(model_role_pairs)
     elif all(k in config for k in ["model", "collaborators", "saboteurs"]):
         # Use the model and counts to generate pairs
@@ -181,11 +201,18 @@ if __name__ == "__main__":
         collaborators = config["collaborators"]
         saboteurs = config["saboteurs"]
         model_role_pairs = numbers_to_pairs(model, collaborators, saboteurs)
-        participants_factory = lambda: participants_from_pairs(model_role_pairs)
+        participants_factory = lambda: participants_from_pairs(model_role_pairs, max_tokens=max_tokens)
         num_participants = count_participants_from_pairs(model_role_pairs)
     else:
         raise ValueError("Config must contain either 'model_role_pairs' or all of 'model', 'collaborators', and 'saboteurs'")
-    
+    max_tokens = config.get("max_tokens", None)  # Default to 1000 if not specified
+    if max_tokens is None:
+        # Warn about potential long completion times with r1 models
+        if any(str(pair[0]).lower() in r1_models for pair in model_role_pairs):
+            warnings.warn(
+                "Using r1 models may result in very long completion times due to their verbose responses.You probably want to put a max_tokens in your config.",
+                RuntimeWarning
+            )
     result = make_groupchat_factory_and_run(
         participants_factory=participants_factory, 
         num_participants=num_participants, 
