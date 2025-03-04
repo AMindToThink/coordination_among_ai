@@ -15,7 +15,7 @@ from datetime import datetime
 import os
 
 
-def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, end_condition, log_file=None):
+def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, end_condition, log_file=None, limit=float('inf')):
     chat_evaluator = GroupChatEvaluator()
     assert end_condition in {'quorum', 'turns'}
     def groupchat_factory():
@@ -47,6 +47,7 @@ def make_groupchat_factory_and_run(participants_factory, num_participants, rate_
             num_agents=num_participants,
             rate_limit_sleep=rate_limit,
             log_file=log_file,
+            limit=limit,
         )
     )
     return result
@@ -126,7 +127,12 @@ if __name__ == "__main__":
         required=True,
         help="Path to JSON configuration file",
     )
-
+    parser.add_argument(
+        "--pick_n",
+        type=int,
+        default=-1,
+        help="Only do the first n questions. Defaults to -1 which means all questions."
+    )
     args = parser.parse_args()
     
     # Load configuration from JSON file
@@ -186,7 +192,8 @@ if __name__ == "__main__":
         rate_limit=rate_limit, 
         turns=turns,
         end_condition=end_condition,
-        log_file=log_file
+        log_file=log_file,
+        limit=float('inf') if args.pick_n == -1 else args.pick_n,
     )
     
     # Include the configuration and actual model-role pairs used in the result
