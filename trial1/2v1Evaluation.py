@@ -58,8 +58,9 @@ def make_groupchat_factory_and_run(participants_factory, num_participants, rate_
 def count_participants_from_pairs(model_role_pairs:list):
     return len(model_role_pairs)
 
-def participants_from_pairs(model_role_pairs:list, max_tokens=1000):
-    random.shuffle(model_role_pairs)
+def participants_from_pairs(model_role_pairs:list, max_tokens=1000, randomize_order=True):
+    if randomize_order:
+        random.shuffle(model_role_pairs)
     model_clients = {}
     for model, _ in model_role_pairs:
         if model not in model_clients:
@@ -96,7 +97,8 @@ def participants_from_pairs(model_role_pairs:list, max_tokens=1000):
 
     return participants
 
-def numbers_to_pairs(model:str, collaborators:int, saboteurs:int):
+def numbers_to_pairs(model:str, collaborators:int, saboteurs:int, randomize_order=True):
+    assert randomize_order, "When using numbers_to_pairs, randomize_order must be True"
     colab_or_saboteur = ["collaborator"] * collaborators + ["saboteur"] * saboteurs
     random.shuffle(colab_or_saboteur)
     result = []
@@ -190,18 +192,19 @@ if __name__ == "__main__":
             log_file = os.path.join(output_dir, f"{log_file}_{timestamp}.txt")
     
     # Determine which method was used to specify participants
+    randomize_order = config.get("randomize_order", True)
     if "model_role_pairs" in config:
         # Use the model-role pairs directly
         model_role_pairs = config["model_role_pairs"]
-        participants_factory = lambda: participants_from_pairs(model_role_pairs, max_tokens=max_tokens)
+        participants_factory = lambda: participants_from_pairs(model_role_pairs, max_tokens=max_tokens, randomize_order=randomize_order)
         num_participants = count_participants_from_pairs(model_role_pairs)
     elif all(k in config for k in ["model", "collaborators", "saboteurs"]):
         # Use the model and counts to generate pairs
         model = config["model"]
         collaborators = config["collaborators"]
         saboteurs = config["saboteurs"]
-        model_role_pairs = numbers_to_pairs(model, collaborators, saboteurs)
-        participants_factory = lambda: participants_from_pairs(model_role_pairs, max_tokens=max_tokens)
+        model_role_pairs = numbers_to_pairs(model, collaborators, saboteurs, randomize_order=randomize_order)
+        participants_factory = lambda: participants_from_pairs(model_role_pairs, max_tokens=max_tokens, randomize_order=randomize_order)
         num_participants = count_participants_from_pairs(model_role_pairs)
     else:
         raise ValueError("Config must contain either 'model_role_pairs' or all of 'model', 'collaborators', and 'saboteurs'")

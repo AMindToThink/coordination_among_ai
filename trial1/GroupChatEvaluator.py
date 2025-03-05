@@ -5,6 +5,9 @@ from datasets import load_dataset
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_agentchat.teams import BaseGroupChat, RoundRobinGroupChat
 from autogen_agentchat.agents import AssistantAgent
+from autogen_core.models import (
+    SystemMessage,
+)
 import prompting
 from VoteMentionTermination import VoteMentionTermination
 from tqdm import tqdm
@@ -82,6 +85,25 @@ class GroupChatEvaluator():
                     log_file_handle.write(f"Choices: {choices}\n")
                     log_file_handle.write(f"Correct Answer: {answer}\n")
                     log_file_handle.write(f"Task: {task}\n\n")
+                    log_file_handle.write(f"=== Roles ===\n")
+                    # Assuming you have a BaseGroupChat instance called 'group_chat'
+                    for participant in groupchat._participants:
+                        log_file_handle.write(f"Name: {participant.name}")
+                        if isinstance(participant, AssistantAgent):
+                            if participant._system_messages and isinstance(participant._system_messages[0], SystemMessage):
+                                system_message = participant._system_messages[0].content
+                                log_file_handle.write(f"System message: {system_message}")
+                            else:
+                                print(f"Agent {participant.name} has no system message")
+                        else:
+                            log_file_handle.write("This is not an assistant agent, so no system message given.")
+                    # for participant in groupchat._participants:
+                    #     # Do something with each participant
+                    #     print(participant.name)
+                    #     print("\tparticipant.description")
+                    #     assert isinstance(participant, AssistantAgent)
+                    #     print(f"\t{prompting.system_message_to_type[participant._system_messages[0].content]}")
+                    #     # Access other properties or methods of the ChatAgent
                     log_file_handle.write("=== Conversation ===\n")
                     log_file_handle.write(str(chat_result))
                     log_file_handle.write("\n")
