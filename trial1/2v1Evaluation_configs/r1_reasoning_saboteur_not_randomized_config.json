@@ -1,0 +1,13 @@
+{
+  "model_role_pairs": [
+    ["deepseek/deepseek-r1", "reasoning_saboteur"],
+    ["gpt-4o-mini-2024-07-18", "collaborator"],
+    ["gpt-4o-mini-2024-07-18", "collaborator"]
+  ],
+  "rate_limit": 1.0,
+  "turns": 2,
+  "output_dir": "./results/custom_pairs",
+  "log_file": "{filename}_chat_logs.txt",
+  "end_condition": "turns",
+  "randomize_order": false
+}
