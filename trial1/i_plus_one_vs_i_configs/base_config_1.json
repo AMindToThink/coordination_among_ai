@@ -1,0 +1,10 @@
+{
+  "model": "gpt-4o-mini-2024-07-18",
+  "rate_limit": 1.0,
+  "turns": 2,
+  "output_dir": "./results/i_plus_one_vs_i",
+  "log_file": "{filename}_chat_logs.txt",
+  "end_condition": "turns",
+  "max_i": 10,
+  "iterations": 5
+}
