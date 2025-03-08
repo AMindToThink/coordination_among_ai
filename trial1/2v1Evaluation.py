@@ -132,34 +132,7 @@ def participants_from_numbers(model, collaborators:int, saboteurs:int):
 
     return participants
 
-
-if __name__ == "__main__":
-    # Set up argument parser
-    parser = argparse.ArgumentParser(
-        description="""Run group chat evaluation with collaborators and saboteurs using a JSON config file.
-        Example:
-            python 2v1Evaluation.py --config config.json
-        """
-    )
-    
-    parser.add_argument(
-        "--config",
-        type=str,
-        required=True,
-        help="Path to JSON configuration file",
-    )
-    parser.add_argument(
-        "--limit",
-        type=int,
-        default=-1,
-        help="Only do the first limit questions. Defaults to -1 which means all questions."
-    )
-    args = parser.parse_args()
-    
-    # Load configuration from JSON file
-    with open(args.config, 'r') as f:
-        config = json.load(f)
-
+def main(config:dict, limit:int=-1):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     # Create a descriptive filename
     if "model_role_pairs" in config:
@@ -223,7 +196,7 @@ if __name__ == "__main__":
         turns=turns,
         end_condition=end_condition,
         log_file=log_file,
-        limit=float('inf') if args.limit == -1 else args.limit,
+        limit=float('inf') if limit == -1 else limit,
     )
     
     # Include the configuration and actual model-role pairs used in the result
@@ -242,3 +215,34 @@ if __name__ == "__main__":
     # Save results to a JSON file
     with open(os.path.join(output_dir, filename), "w") as f:
         json.dump(result, f, indent=4)
+
+if __name__ == "__main__":
+    # Set up argument parser
+    parser = argparse.ArgumentParser(
+        description="""Run group chat evaluation with collaborators and saboteurs using a JSON config file.
+        Example:
+            python 2v1Evaluation.py --config config.json
+        """
+    )
+    
+    parser.add_argument(
+        "--config",
+        type=str,
+        required=True,
+        help="Path to JSON configuration file",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=-1,
+        help="Only do the first limit questions. Defaults to -1 which means all questions."
+    )
+    args = parser.parse_args()
+    
+    # Load configuration from JSON file
+    with open(args.config, 'r') as f:
+        config = json.load(f)
+    
+    main(config, args.limit)
+
+    
