@@ -1,7 +1,7 @@
 import argparse
 import json
 import os
-import time
+import shutil
 from datetime import datetime
 import NvKEvaluation
 
@@ -25,38 +25,43 @@ def i_plus_one_vs_i(config_path):
     for i in range(0, max_i + 1):
         i_output_dir = os.path.join(output_dir, f"i_{i}")
         os.makedirs(i_output_dir, exist_ok=True)
+        
+        # Create trash folder for each i
+        trash_dir = os.path.join(i_output_dir, "trash")
+        os.makedirs(trash_dir, exist_ok=True)
     
     # Run evaluations for each iteration and i
     for iteration in range(iterations):
         for i in range(0, max_i + 1):
             # Get the i-specific output directory
             i_output_dir = os.path.join(output_dir, f"i_{i}")
+            trash_dir = os.path.join(i_output_dir, "trash")
             
-            # Check if this run has already been completed successfully
-            completed = False
-            timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            
-            # Look for existing evaluation files in the directory
-            for filename in os.listdir(i_output_dir):
-                if filename.endswith('.json') and f"i{i}_iter{iteration}" in filename:
+            # Move JSON files with nulls to trash
+            for f in os.listdir(i_output_dir):
+                if f.endswith('.json'):
+                    file_path = os.path.join(i_output_dir, f)
                     try:
-                        with open(os.path.join(i_output_dir, filename), 'r') as f:
-                            existing_result = json.load(f)
-                        
-                        # Check if the evaluation has valid answers (no nulls)
-                        if ('evaluation' in existing_result and 
-                            'given_answers' in existing_result['evaluation'] and 
-                            None not in existing_result['evaluation']['given_answers']):
-                            print(f"Found complete evaluation for iteration {iteration}, i={i}. Skipping.")
-                            completed = True
-                            break
-                    except (json.JSONDecodeError, FileNotFoundError):
-                        # If file is corrupted or can't be read, we'll redo this run
-                        pass
+                        with open(file_path, 'r') as json_file:
+                            data = json.load(json_file)
+                            if any(answer is None for answer in data["evaluation"]["given_answers"]):
+                                # Move to trash
+                                shutil.move(file_path, os.path.join(trash_dir, f))
+                                print(f"Moved {f} to trash due to null answers")
+                    except (json.JSONDecodeError, KeyError) as e:
+                        # If file is invalid JSON or missing expected keys, move to trash
+                        shutil.move(file_path, os.path.join(trash_dir, f))
+                        print(f"Moved {f} to trash due to error: {str(e)}")
             
-            if completed:
+            # Count remaining JSON files in the directory (those without nulls)
+            existing_json_count = len([f for f in os.listdir(i_output_dir) if f.endswith('.json')])
+            print(f"Found {existing_json_count} valid JSON files in {i_output_dir}")
+            
+            # Skip this iteration if we already have enough valid files
+            if existing_json_count > iteration:
+                print(f"Skipping iteration {iteration}, i={i} as we already have {existing_json_count} valid files")
                 continue
-                
+            
             # Create config for this run
             run_config = {
                 "model": model,
@@ -73,35 +78,7 @@ def i_plus_one_vs_i(config_path):
             
             # Run evaluation with this config
             print(f"Running iteration {iteration}, i={i} ({i+1} collaborators vs {i} saboteurs)")
-            
-            # Run and check for null answers
-            max_retries = 3
-            retry_count = 0
-            success = False
-            
-            while not success and retry_count < max_retries:
-                result = NvKEvaluation.main(run_config)
-                
-                # Check if result contains null answers
-                if result and 'evaluation' in result and 'given_answers' in result['evaluation']:
-                    null_count = result['evaluation']['given_answers'].count(None)
-                    valid_count = len(result['evaluation']['given_answers']) - null_count
-                    
-                    if null_count > 0:
-                        print(f"Found {null_count} null answers out of {len(result['evaluation']['given_answers'])}. Retrying...")
-                        retry_count += 1
-                        # Wait before retrying to avoid rate limits
-                        time.sleep(base_config.get("retry_delay", 60))
-                    else:
-                        print(f"All {valid_count} answers are valid. Moving to next configuration.")
-                        success = True
-                else:
-                    print("Couldn't verify answers. Retrying...")
-                    retry_count += 1
-                    time.sleep(base_config.get("retry_delay", 60))
-            
-            if not success:
-                print(f"Warning: Maximum retries reached for iteration {iteration}, i={i}. Moving to next configuration.")
+            NvKEvaluation.main(run_config)
 
 if __name__ == "__main__":
     # Set up command line argument parsing
