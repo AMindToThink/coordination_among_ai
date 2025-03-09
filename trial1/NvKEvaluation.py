@@ -19,8 +19,9 @@ import os
 
 r1_models = {"deepseek/deepseek-r1"} # so that we can use the slightly more complicated OpenAIChatCompletionClient
 
-def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, end_condition, log_file=None, limit=float('inf')):
-    chat_evaluator = GroupChatEvaluator()
+def make_groupchat_factory_and_run(participants_factory, num_participants, rate_limit, turns, end_condition, log_file=None, limit=float('inf'), dataset_dict=None):
+    dataset_dict = dataset_dict or {"path": "allenai/ai2_arc", "name": "ARC-Challenge", "split": "validation"}
+    chat_evaluator = GroupChatEvaluator(load_dataset_kwargs=dataset_dict)
     assert end_condition in {'quorum', 'turns'}
     def groupchat_factory():
         # Use the randomized participants list for the group chat.
@@ -190,6 +191,13 @@ def main(config:dict, limit:int=-1):
                 "Using r1 models may result in very long completion times due to their verbose responses.You probably want to put a max_tokens in your config.",
                 RuntimeWarning
             )
+    # Get dataset configuration with default values
+    dataset_dict = config.get("dataset_dict", {
+        "path": "allenai/ai2_arc", 
+        "name": "ARC-Challenge", 
+        "split": "validation"
+    })
+    
     result = make_groupchat_factory_and_run(
         participants_factory=participants_factory, 
         num_participants=num_participants, 
@@ -198,6 +206,7 @@ def main(config:dict, limit:int=-1):
         end_condition=end_condition,
         log_file=log_file,
         limit=float('inf') if limit == -1 else limit,
+        dataset_dict=dataset_dict
     )
     
     # Include the configuration and actual model-role pairs used in the result
