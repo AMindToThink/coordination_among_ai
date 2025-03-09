@@ -1,0 +1,10 @@
+{
+  "model": "gpt-4o-mini-2024-07-18",
+  "collaborators": 2,
+  "saboteurs": 0,
+  "rate_limit": 0.0,
+  "turns": 2,
+  "output_dir": "./results/model_counts/in_order",
+  "log_file": "{filename}_chat_logs.txt",
+  "end_condition": "turns"
+}

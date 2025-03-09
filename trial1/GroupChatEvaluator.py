@@ -55,7 +55,7 @@ class GroupChatEvaluator():
             log_file_handle = open(log_file, 'w', encoding='utf-8')
             log_file_handle.write("=== Group Chat Evaluation Logs ===\n\n")
 
-        async def process_row(row):
+        async def process_row(idx, row):
             async with semaphore:
                 # Enforce a minimum time delay between API calls to avoid rate limits.
                 async with rate_limit_lock:
@@ -72,13 +72,10 @@ class GroupChatEvaluator():
                 answer = row['answerKey']
                 task = task_formatter(question=question, choices=choices, num_agents=num_agents)
                 
-                    
-                
                 chat_result = await groupchat.run(task=task)
-                # Add async-compatible breakpoint for debugging
-                # import pdb; pdb.set_trace()
-                # Log the conversation if logging is enabled
                 chosen_answer = json.loads(chat_result.stop_reason)['answer'] if chat_result.stop_reason else None
+                
+                # Log the conversation if logging is enabled
                 if log_file_handle:
                     log_file_handle.write(f"Question ID: {row.get('id', 'unknown')}\n")
                     log_file_handle.write(f"Question: {question}\n")
@@ -117,7 +114,7 @@ class GroupChatEvaluator():
                 if verbose:
                     print(prompting.format_question(question, choices))
                     print(chat_result)
-                return chosen_answer, (chosen_answer == answer)
+                return idx, chosen_answer, (chosen_answer == answer)
         
         # Create tasks up to the specified limit.
         tasks = []
@@ -125,20 +122,25 @@ class GroupChatEvaluator():
         for i, row in enumerate(self.ds):
             if i >= actual_limit:
                 break
-            tasks.append(asyncio.create_task(process_row(row)))
+            tasks.append(asyncio.create_task(process_row(i, row)))
         
         # Set up a progress bar that updates as each task completes.
         progress_bar = tqdm(total=len(tasks), desc="Evaluating (parallel)")
         
         try:
-            results = []
+            # Store results with their indices
+            indexed_results = []
             for coro in asyncio.as_completed(tasks):
                 result = await coro
-                results.append(result)
+                indexed_results.append(result)
                 progress_bar.update(1)
             progress_bar.close()
             
-            for chosen_answer, is_correct in results:
+            # Sort results by the original index
+            indexed_results.sort(key=lambda x: x[0])
+            
+            # Extract the sorted answers and correctness
+            for _, chosen_answer, is_correct in indexed_results:
                 given_answers_list.append(chosen_answer)
                 answers_correct_list.append(is_correct)
             
