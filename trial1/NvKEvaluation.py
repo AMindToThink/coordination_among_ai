@@ -3,7 +3,8 @@ import warnings
 import random
 from typing import Callable
 from datasets import load_dataset
-from autogen_ext.models.openai import OpenAIChatCompletionClient
+# from autogen_ext.models.openai import OpenAIChatCompletionClient
+from RetryOpenAIChatCompletionClient import RetryOpenAIChatCompletionClient
 from autogen_agentchat.teams import BaseGroupChat, RoundRobinGroupChat
 from autogen_agentchat.agents import AssistantAgent
 from autogen_core.models import ModelFamily
@@ -65,13 +66,13 @@ def participants_from_pairs(model_role_pairs:list, max_tokens=1000, randomize_or
     for model, _ in model_role_pairs:
         if model not in model_clients:
             if model not in r1_models:
-                model_clients[model] = OpenAIChatCompletionClient(
+                model_clients[model] = RetryOpenAIChatCompletionClient(
                     model=model,
                     # api_key="YOUR_API_KEY",
                 )
                 continue
 
-            model_clients[model] = OpenAIChatCompletionClient(
+            model_clients[model] = RetryOpenAIChatCompletionClient(
                 model=model,
                 base_url="https://openrouter.ai/api/v1",
                 api_key=os.environ['OPENROUTER_API_KEY'],
@@ -113,7 +114,7 @@ def count_participants_from_numbers(collaborators:int, saboteurs:int):
 
 def participants_from_numbers(model, collaborators:int, saboteurs:int):
     assert False, "I swapped this to numbers_to_pairs and participants_from_pairs"
-    model_client = OpenAIChatCompletionClient(
+    model_client = RetryOpenAIChatCompletionClient(
         model=model,
         # api_key="YOUR_API_KEY",
     )

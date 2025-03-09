@@ -151,6 +151,9 @@ class GroupChatEvaluator():
             # Close the log file if it was opened
             if log_file_handle:
                 log_file_handle.close()
+                log_file_handle = None  # Explicitly set to None to avoid later references
+            # Make sure to close any other resources
+            progress_bar.close()  # Ensure progress bar is closed even if an exception occurs
 
 if __name__ == '__main__':
     chat_evaluator = GroupChatEvaluator()
