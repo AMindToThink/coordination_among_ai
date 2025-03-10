@@ -1,6 +1,7 @@
-from datasets import Dataset, Features, Sequence, Value, DatasetDict
+from datasets import Dataset, Features, Sequence, Value
 import pandas as pd
 import json
+import os
 
 # Read your CSV files
 df_first_five = pd.read_csv('coding-quiz-csv-reformatted.csv')
@@ -25,12 +26,22 @@ features = Features({
 dataset_first_five = Dataset.from_pandas(df_first_five, features=features)
 dataset_first_fifteen = Dataset.from_pandas(df_first_fifteen, features=features)
 
-# Create a DatasetDict with named subsets
-dataset_dict = DatasetDict({
-    'first_five': dataset_first_five,
-    'first_fifteen': dataset_first_fifteen
-})
+# Push each dataset separately with its own name
+dataset_first_five.push_to_hub(
+    'AMindToThink/common_bugs', 
+    token=os.environ.get('HUGGINGFACE_WRITE_KEY', None),
+    config_name="first_five"
+)
 
-# Push to hub
-import os
-dataset_dict.push_to_hub('AMindToThink/common_bugs', token=os.environ.get('HUGGINGFACE_WRITE_KEY', None))
+dataset_first_fifteen.push_to_hub(
+    'AMindToThink/common_bugs', 
+    token=os.environ.get('HUGGINGFACE_WRITE_KEY', None),
+    config_name="first_fifteen"
+)
+
+# Also push first_five as the default configuration
+dataset_first_five.push_to_hub(
+    'AMindToThink/common_bugs', 
+    token=os.environ.get('HUGGINGFACE_WRITE_KEY', None),
+    config_name="default"
+)
