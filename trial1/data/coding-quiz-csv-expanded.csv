@@ -1,0 +1,318 @@
+id,question,choices,answerKey
+1,"Please identify the bug in this JavaScript code:
+
+```javascript
+function removeElement(array, element) {
+    var index = array.indexOf(element);
+    if (index !== -1) {
+        array.splice(index);
+        return true;
+    }
+    return false;
+}
+```","{ ""text"": [ ""The function modifies the original array instead of creating a copy"", ""The splice method is missing the second parameter specifying how many elements to remove"", ""The indexOf method doesn't work on arrays"", ""The function should use filter() instead of splice()"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+2,"Please identify the bug in this Python code:
+
+```python
+def sum_even_numbers(numbers):
+    total = 0
+    for i in range(1, len(numbers)):
+        if numbers[i] % 2 == 0:
+            total += numbers[i]
+    return total
+```","{ ""text"": [ ""The loop starts at index 1 instead of 0, skipping the first element"", ""The modulo operator is incorrectly checking for even numbers"", ""The total variable isn't properly initialized"", ""The function returns the wrong variable"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","A"
+3,"Please identify the bug in this Java code:
+
+```java
+public int fibonacci(int n) {
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```","{ ""text"": [ ""The base cases are incorrectly defined"", ""The function doesn't handle negative inputs properly"", ""There's no termination condition, causing infinite recursion"", ""The recursive calls are in the wrong order"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+4,"Please identify the bug in this SQL query:
+
+```sql
+SELECT customer_name, COUNT(order_id) 
+FROM customers 
+JOIN orders ON customers.id = orders.customer_id
+WHERE orders.total > 100;
+```","{ ""text"": [ ""The JOIN syntax is incorrect"", ""Missing GROUP BY clause when using COUNT aggregate function"", ""The WHERE clause should come before the JOIN"", ""The SELECT statement can't include both a column and an aggregate function"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+5,"Please identify the bug in this C++ code:
+
+```cpp
+char* createMessage() {
+    char message[100];
+    strcpy(message, ""Hello, World!"");
+    return message;
+}
+```","{ ""text"": [ ""The strcpy function is deprecated and shouldn't be used"", ""The message array is too small to hold the string"", ""The function returns a pointer to a local variable that goes out of scope"", ""The string 'Hello, World!' is missing a null terminator"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","C"
+6,"Please identify the bug in this Python threading code:
+
+```python
+import threading
+
+def process_data(data):
+    result = []
+    threads = []
+    
+    def worker(item):
+        processed = complex_calculation(item)
+        result.append(processed)
+    
+    for item in data:
+        thread = threading.Thread(target=worker, args=(item,))
+        threads.append(thread)
+        thread.start()
+    
+    return result
+```","{ ""text"": [ ""The function is creating too many threads which will cause performance issues"", ""The function doesn't join the threads, so it returns before processing is complete"", ""The result list is not thread-safe, leading to potential race conditions"", ""The worker function is incorrectly defined within the scope of process_data"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+7,"Please identify the bug in this JavaScript asynchronous code:
+
+```javascript
+async function fetchUserData(userId) {
+    const userResponse = await fetch(`/api/users/${userId}`);
+    const userData = await userResponse.json();
+    
+    const postsResponse = fetch(`/api/users/${userId}/posts`);
+    const postsData = postsResponse.json();
+    
+    return {
+        user: userData,
+        posts: postsData
+    };
+}
+```","{ ""text"": [ ""The userId parameter is not being properly validated"", ""The second fetch call is missing the await keyword"", ""The function is using template literals incorrectly"", ""The return statement executes before all data is fetched"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+8,"Please identify the bug in this React component:
+
+```jsx
+function UserProfile({ userId }) {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        setLoading(true);
+        fetch(`/api/users/${userId}`)
+            .then(res => res.json())
+            .then(data => {
+                setUser(data);
+                setLoading(false);
+            });
+    }, []);
+    
+    if (loading) return <div>Loading...</div>;
+    return <div>Welcome, {user.name}!</div>;
+}
+```","{ ""text"": [ ""The useState hook is being used incorrectly"", ""The fetch call doesn't include error handling"", ""The useEffect dependency array doesn't include userId, causing stale data"", ""The user object might be null when rendering"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","C"
+9,"Please identify the bug in this C# event handling code:
+
+```csharp
+public class EventPublisher
+{
+    public event EventHandler<string> DataReceived;
+    
+    public void ProcessData(string data)
+    {
+        // Process the data
+        Console.WriteLine($""Processing: {data}"");
+        
+        // Notify subscribers
+        DataReceived(this, data);
+    }
+}
+```","{ ""text"": [ ""The event is being invoked without checking if there are any subscribers"", ""The EventHandler generic type parameter should be an EventArgs class, not string"", ""The ProcessData method should be marked as async"", ""The Console.WriteLine statement is using string interpolation incorrectly"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","A"
+10,"Please identify the bug in this Ruby code for a binary search tree insertion:
+
+```ruby
+class Node
+  attr_accessor :value, :left, :right
+  
+  def initialize(value)
+    @value = value
+    @left = nil
+    @right = nil
+  end
+end
+
+class BinarySearchTree
+  attr_accessor :root
+  
+  def initialize
+    @root = nil
+  end
+  
+  def insert(value)
+    @root = insert_node(@root, value)
+  end
+  
+  def insert_node(node, value)
+    return Node.new(value) if node.nil?
+    
+    if value < node.value
+      node.left = insert_node(node.left, value)
+    elsif value > node.value
+      node.right = insert_node(node.right, value)
+    end
+    
+    node
+  end
+end
+```","{ ""text"": [ ""The Node class should use attr_reader instead of attr_accessor"", ""The insert_node method doesn't handle duplicate values"", ""The BinarySearchTree class is missing a method to traverse the tree"", ""The root node isn't properly initialized in the BinarySearchTree class"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+11,"Please identify the bug in this PostgreSQL query for a report that joins multiple tables:
+
+```sql
+WITH monthly_sales AS (
+    SELECT 
+        DATE_TRUNC('month', o.order_date) AS month,
+        p.category_id,
+        SUM(oi.quantity * oi.unit_price) AS total_sales
+    FROM orders o
+    JOIN order_items oi ON o.order_id = oi.order_id
+    JOIN products p ON oi.product_id = p.product_id
+    WHERE o.order_date BETWEEN '2023-01-01' AND '2023-12-31'
+    GROUP BY month, p.category_id
+)
+SELECT 
+    c.category_name,
+    ms.month,
+    ms.total_sales,
+    ms.total_sales / SUM(ms.total_sales) OVER (PARTITION BY ms.month) AS percentage
+FROM monthly_sales ms
+JOIN categories c ON ms.category_id = c.category_id
+ORDER BY ms.month, percentage DESC;
+```","{ ""text"": [ ""The DATE_TRUNC function is being used incorrectly"", ""The window function doesn't include the ORDER BY clause"", ""The division in the percentage calculation might cause division by zero"", ""The JOIN between monthly_sales and categories should be a LEFT JOIN"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","C"
+12,"Please identify the bug in this Go concurrent code that processes items in parallel:
+
+```go
+func processItems(items []Item) []Result {
+    results := make([]Result, 0)
+    var wg sync.WaitGroup
+    
+    for _, item := range items {
+        wg.Add(1)
+        go func() {
+            defer wg.Done()
+            result := processItem(item)
+            results = append(results, result)
+        }()
+    }
+    
+    wg.Wait()
+    return results
+}
+```","{ ""text"": [ ""The waitgroup Wait() method is called in the wrong place"", ""The processItem function might not be thread-safe"", ""The closure is using the loop variable without capturing it correctly"", ""The results slice isn't protected from concurrent access"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","C"
+13,"Please identify the bug in this TypeScript code that implements a generic cache:
+
+```typescript
+class Cache<T> {
+    private items: Map<string, {value: T, timestamp: number}> = new Map();
+    private readonly ttl: number;
+    
+    constructor(ttlSeconds: number) {
+        this.ttl = ttlSeconds * 1000; // Convert to milliseconds
+    }
+    
+    set(key: string, value: T): void {
+        this.items.set(key, {
+            value,
+            timestamp: Date.now()
+        });
+    }
+    
+    get(key: string): T | null {
+        const item = this.items.get(key);
+        
+        if (!item) {
+            return null;
+        }
+        
+        if (Date.now() - item.timestamp > this.ttl) {
+            this.items.delete(key);
+            return null;
+        }
+        
+        return item;
+    }
+}
+```","{ ""text"": [ ""The ttl calculation in the constructor is incorrect"", ""The class doesn't implement a cleanup mechanism for expired items"", ""The get method returns the entire item object instead of just the value"", ""The set method doesn't validate that the value is of type T"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","C"
+14,"Please identify the bug in this Python code for handling decimal calculations:
+
+```python
+def calculate_discount(price, discount_percentage):
+    decimal_discount = discount_percentage / 100
+    discount_amount = price * decimal_discount
+    final_price = price - discount_amount
+    
+    # Round to 2 decimal places for cents
+    return round(final_price, 2)
+
+def process_order(items, discount_code):
+    subtotal = sum(item['price'] * item['quantity'] for item in items)
+    tax_rate = 0.08  # 8% tax
+    
+    if discount_code == 'SAVE20':
+        discounted_price = calculate_discount(subtotal, 20)
+        tax = discounted_price * tax_rate
+        total = discounted_price + tax
+    else:
+        tax = subtotal * tax_rate
+        total = subtotal + tax
+    
+    return {
+        'subtotal': subtotal,
+        'discount': subtotal - discounted_price if discount_code == 'SAVE20' else 0,
+        'tax': tax,
+        'total': total
+    }
+```","{ ""text"": [ ""The discounted_price variable might be referenced before assignment"", ""The tax calculation should happen after applying the discount"", ""The round function might produce unexpected results due to floating-point arithmetic"", ""The discount calculation doesn't handle edge cases like discount_percentage = 0"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","A"
+15,"Please identify the bug in this Rust code that implements a custom thread pool:
+
+```rust
+pub struct ThreadPool {
+    workers: Vec<Worker>,
+    sender: mpsc::Sender<Job>,
+}
+
+type Job = Box<dyn FnOnce() + Send + 'static>;
+
+impl ThreadPool {
+    pub fn new(size: usize) -> ThreadPool {
+        assert!(size > 0);
+
+        let (sender, receiver) = mpsc::channel();
+        let receiver = Arc::new(Mutex::new(receiver));
+        
+        let mut workers = Vec::with_capacity(size);
+
+        for id in 0..size {
+            workers.push(Worker::new(id, Arc::clone(&receiver)));
+        }
+
+        ThreadPool { workers, sender }
+    }
+
+    pub fn execute<F>(&self, f: F)
+    where
+        F: FnOnce() + Send + 'static,
+    {
+        let job = Box::new(f);
+        self.sender.send(job);
+    }
+}
+
+struct Worker {
+    id: usize,
+    thread: thread::JoinHandle<()>,
+}
+
+impl Worker {
+    fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
+        let thread = thread::spawn(move || loop {
+            let job = receiver.lock().unwrap().recv().unwrap();
+            job();
+        });
+
+        Worker { id, thread }
+    }
+}
+```","{ ""text"": [ ""The ThreadPool doesn't implement Drop to gracefully shut down workers"", ""The execute method doesn't handle errors from send operation"", ""The Worker's thread will panic if the channel is closed"", ""The Mutex lock is held during the entire job execution, blocking other workers"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"

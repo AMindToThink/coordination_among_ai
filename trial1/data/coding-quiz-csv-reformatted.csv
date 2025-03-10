@@ -1,0 +1,49 @@
+id,question,choices,answerKey
+1,"Please identify the bug in this JavaScript code:
+
+```javascript
+function removeElement(array, element) {
+    var index = array.indexOf(element);
+    if (index !== -1) {
+        array.splice(index);
+        return true;
+    }
+    return false;
+}
+```","{ ""text"": [ ""The function modifies the original array instead of creating a copy"", ""The splice method is missing the second parameter specifying how many elements to remove"", ""The indexOf method doesn't work on arrays"", ""The function should use filter() instead of splice()"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+2,"Please identify the bug in this Python code:
+
+```python
+def sum_even_numbers(numbers):
+    total = 0
+    for i in range(1, len(numbers)):
+        if numbers[i] % 2 == 0:
+            total += numbers[i]
+    return total
+```","{ ""text"": [ ""The loop starts at index 1 instead of 0, skipping the first element"", ""The modulo operator is incorrectly checking for even numbers"", ""The total variable isn't properly initialized"", ""The function returns the wrong variable"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","A"
+3,"Please identify the bug in this Java code:
+
+```java
+public int fibonacci(int n) {
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```","{ ""text"": [ ""The base cases are incorrectly defined"", ""The function doesn't handle negative inputs properly"", ""There's no termination condition, causing infinite recursion"", ""The recursive calls are in the wrong order"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+4,"Please identify the bug in this SQL query:
+
+```sql
+SELECT customer_name, COUNT(order_id) 
+FROM customers 
+JOIN orders ON customers.id = orders.customer_id
+WHERE orders.total > 100;
+```","{ ""text"": [ ""The JOIN syntax is incorrect"", ""Missing GROUP BY clause when using COUNT aggregate function"", ""The WHERE clause should come before the JOIN"", ""The SELECT statement can't include both a column and an aggregate function"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","B"
+5,"Please identify the bug in this C++ code:
+
+```cpp
+char* createMessage() {
+    char message[100];
+    strcpy(message, ""Hello, World!"");
+    return message;
+}
+```","{ ""text"": [ ""The strcpy function is deprecated and shouldn't be used"", ""The message array is too small to hold the string"", ""The function returns a pointer to a local variable that goes out of scope"", ""The string 'Hello, World!' is missing a null terminator"" ], ""label"": [ ""A"", ""B"", ""C"", ""D"" ] }","C"
