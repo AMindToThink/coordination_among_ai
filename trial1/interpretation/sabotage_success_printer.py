@@ -42,14 +42,25 @@ def main():
         if question_id:
             segment_ids[question_id] = i
     
-    # Load the AI2 ARC dataset
-    dataset = load_dataset(**dict(path="allenai/ai2_arc", name="ARC-Challenge", split='validation'))
+    # Extract dataset configuration from success data
+    dataset_config = {
+        "path": "allenai/ai2_arc",
+        "name": "ARC-Challenge", 
+        "split": "validation"
+    }
+    
+    if "sabotage_config" in success_data and "dataset_dict" in success_data["sabotage_config"]:
+        dataset_config = success_data["sabotage_config"]["dataset_dict"]
+    
+    # Load the dataset
+    dataset = load_dataset(**dataset_config)
     
     # Map successful sabotage indices to question IDs
     successful_indices = success_data["successful_sabotage_indices"]
     detailed_sabotages = []
     
     print(f"Found {len(successful_indices)} successful sabotages")
+    print(f"Using dataset: {dataset_config['path']}, {dataset_config.get('name', '')}, {dataset_config.get('split', '')}")
     
     for idx in successful_indices:
         # Get the question ID from the dataset
