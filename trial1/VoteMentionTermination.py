@@ -59,6 +59,7 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
         return self._terminated
 
     async def __call__(self, messages: Sequence[AgentEvent | ChatMessage]) -> StopMessage | None:
+        # TODO: I'm concerned there's an off-by-one error where a vote might be counted extra in a certain position. 
         self._current_turn_number += 1
         if self._terminated:
             raise TerminatedException("Termination condition has already been reached")
@@ -115,6 +116,8 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
                     continue
                 answer = message.content[answer_pos]
                 assert isinstance(message.source, str), f"What the heck is an {type(message.source)}"
+                if answer not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+                    continue
                 self.vote_dict[message.source] = answer
             
             votes = {}
@@ -130,10 +133,9 @@ class VoteMentionTermination(TerminationCondition, Component[VoteMentionTerminat
             self._terminated = True
             # Use JSON to structure the message data
             return StopMessage(
-                content=json.dumps({"answer": max_choice, "type": "vote"}),
+                content=json.dumps({"answer": max_choice, "type": "vote", "num_voters": self._num_voters, "num_votes": sum(votes.values())}),
                 source="VoteMentionTermination"
             )
-            
         if self.quorum_fraction is not None:
             return quorum_system()
         return turn_system()
